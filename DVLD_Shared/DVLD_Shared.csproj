@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0933C4F9-63AA-4092-83A4-632D89462A55}</ProjectGuid>
+    <ProjectGuid>{9E84C27A-D830-42A6-93BE-023E509277EC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>DVLD_Buisness</RootNamespace>
-    <AssemblyName>DVLD_Buisness</AssemblyName>
+    <RootNamespace>DVLD_Shared</RootNamespace>
+    <AssemblyName>DVLD_Shared</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,21 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsPeople.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DVLD_DataAccess\DVLD_DataAccess.csproj">
-      <Project>{859109c5-a478-48aa-8214-640ead2103bb}</Project>
-      <Name>DVLD_DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DVLD_Shared\DVLD_Shared.csproj">
-      <Project>{9e84c27a-d830-42a6-93be-023e509277ec}</Project>
-      <Name>DVLD_Shared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
