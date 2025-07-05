@@ -75,7 +75,6 @@ namespace DVLD_DataAccess
             else
                 command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
 
-
             try
             {
                 connection.Open();
