@@ -8,23 +8,23 @@ namespace DVLD_Buisness
 {
     public class clsPeople
     {
-        private enum enMode { AddNew=0, Update=1 };
-        private enum enGender { Male=0, Female=1}
+        public enum enMode { AddNew=0, Update=1 };
+        public enum enGender { Male=0, Female=1}
 
-        private int PersonID { get; set; }
-        private string NationalNo { get; set; }
-        private string FirstName { get; set; }
-        private string SecondName { get; set; }
-        private string ThirdName { get; set; }
-        private string LastName { get; set; }
-        private DateTime DateOfBirth { get; set; }
-        private enGender Gender { get; set; }
-        private string Address { get; set; }
-        private string Phone { get; set; }
-        private string Email { get; set; }
-        private string Nationality { get; set; }
-        private string ImagePath { get; set; }
-        private enMode Mode { get; set; }
+        public int PersonID { get; set; }
+        public string NationalNo { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string ThirdName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public enGender Gender { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public int Nationality { get; set; }
+        public string ImagePath { get; set; }
+        public enMode Mode { get; set; }
 
         public clsPeople()
         {
@@ -39,7 +39,7 @@ namespace DVLD_Buisness
             Address = "";
             Phone = "";
             Email = "";
-            Nationality = "";
+            Nationality = -1;
             ImagePath = "";
             Mode = enMode.AddNew;
         }
@@ -62,9 +62,62 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
-        public static DataTable listPeople()
+        private stPersonWithoutID _FillPersonStruct()
         {
-            return DVLD_DataAccess.clsPeopleData.listPeople();
+            stPersonWithoutID personWithoutID = new stPersonWithoutID();
+
+            personWithoutID.NationalNo = NationalNo;
+            personWithoutID.FirstName = FirstName;
+            personWithoutID.SecondName = SecondName;
+            personWithoutID.ThirdName = ThirdName;
+            personWithoutID.LastName = LastName;
+            personWithoutID.DateOfBirth = DateOfBirth;
+            personWithoutID.Gender = (DVLD_Shared.enGender)Gender;
+            personWithoutID.Address = Address;
+            personWithoutID.Phone = Phone;
+            personWithoutID.Email = Email;
+            personWithoutID.Nationality = Nationality;
+            personWithoutID.ImagePath = ImagePath;
+
+            return personWithoutID;
+        }
+
+        private bool _AddPerson()
+        {
+            stPersonWithoutID personWithoutID = _FillPersonStruct();
+            PersonID = DVLD_DataAccess.clsPeopleData.AddPerson(personWithoutID);
+
+            return (PersonID != -1);
+        }
+
+        //private bool _Update()
+        //{
+        //    return true;
+        //}
+
+        public static DataTable ListPeople()
+        {
+            return DVLD_DataAccess.clsPeopleData.ListPeople();
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddPerson())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+                //case enMode.Update:
+                //    return _Update();
+                default:
+                    return false;
+            }
         }
 
     }

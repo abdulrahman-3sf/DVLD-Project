@@ -23,7 +23,7 @@ namespace DVLD
 
         private void _RefreshComboBoxData()
         {
-            dt = DVLD_Buisness.clsPeople.listPeople();
+            dt = DVLD_Buisness.clsPeople.ListPeople();
             PeopleDT = dt.DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName", "DateOfBirth", "Gendor", "Address", "Phone", "Email", "NationalityCountryID");
 
             dataGridView1.DataSource = PeopleDT;
@@ -39,6 +39,14 @@ namespace DVLD
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddEditPersonInfo form = new AddEditPersonInfo();
+            form.ShowDialog();
+
+            _RefreshComboBoxData();
         }
     }
 }
