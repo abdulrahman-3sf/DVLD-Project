@@ -151,5 +151,10 @@ namespace DVLD_Buisness
         {
             return clsPeopleData.ListPeople();
         }
+
+        public static bool DeletePerson(int PersonID)
+        {
+            return clsPeopleData.DeletePerson(PersonID);
+        }
     }
 }
