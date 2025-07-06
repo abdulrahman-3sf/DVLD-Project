@@ -113,6 +113,18 @@ namespace DVLD_Buisness
                 return null;
         }
 
+        public static clsPeople Find(string PersonNationalNo)
+        {
+            stPersonWithoutID personWithoutID = new stPersonWithoutID();
+            personWithoutID.NationalNo = PersonNationalNo;
+            int PersonID = -1;
+
+            if (clsPeopleData.GetPersonInfoByNationalNo(ref PersonID, ref personWithoutID))
+                return new clsPeople(PersonID, personWithoutID);
+            else
+                return null;
+        }
+
         public static DataTable ListPeople()
         {
             return clsPeopleData.ListPeople();
