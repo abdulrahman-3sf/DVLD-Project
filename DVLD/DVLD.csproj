@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditPersonInfo.cs">
+    <Compile Include="People\AddEditPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditPersonInfo.Designer.cs">
+    <Compile Include="People\AddEditPersonInfo.Designer.cs">
       <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditPersonInfoController.cs">
+    <Compile Include="People\EditPersonInfoController.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EditPersonInfoController.Designer.cs">
+    <Compile Include="People\EditPersonInfoController.Designer.cs">
       <DependentUpon>EditPersonInfoController.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -64,24 +64,24 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagePeople.cs">
+    <Compile Include="People\ManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagePeople.Designer.cs">
+    <Compile Include="People\ManagePeople.Designer.cs">
       <DependentUpon>ManagePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddEditPersonInfo.resx">
+    <EmbeddedResource Include="People\AddEditPersonInfo.resx">
       <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditPersonInfoController.resx">
+    <EmbeddedResource Include="People\EditPersonInfoController.resx">
       <DependentUpon>EditPersonInfoController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagePeople.resx">
+    <EmbeddedResource Include="People\ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

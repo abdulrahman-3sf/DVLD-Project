@@ -16,7 +16,7 @@ namespace DVLD_Shared
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int Nationality { get; set; }
+        public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
     }
 }

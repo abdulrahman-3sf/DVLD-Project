@@ -17,13 +17,20 @@ namespace DVLD_Buisness
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullNmae { get { return FirstName + " " + SecondName + " " + ThirdName + " " + LastName; } }
         public DateTime DateOfBirth { get; set; }
         public enGender Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int Nationality { get; set; }
-        public string ImagePath { get; set; }
+        public int NationalityCountryID { get; set; }
+        public clsCountry CountryInfo;
+        private string _ImagePath;
+        public string ImagePath
+        {
+            get { return _ImagePath; }
+            set { _ImagePath = value; }
+        }
         public enMode Mode { get; set; }
 
         public clsPeople()
@@ -39,7 +46,7 @@ namespace DVLD_Buisness
             Address = "";
             Phone = "";
             Email = "";
-            Nationality = -1;
+            NationalityCountryID = -1;
             ImagePath = "";
             Mode = enMode.AddNew;
         }
@@ -57,7 +64,8 @@ namespace DVLD_Buisness
             Address = person.Address;
             Phone = person.Phone;
             Email = person.Email;
-            Nationality = person.Nationality;
+            NationalityCountryID = person.NationalityCountryID;
+            // CountryInfo = clsCountry.Find(NationalityCountryID);
             ImagePath = person.ImagePath;
             Mode = enMode.Update;
         }
@@ -76,7 +84,7 @@ namespace DVLD_Buisness
             personWithoutID.Address = Address;
             personWithoutID.Phone = Phone;
             personWithoutID.Email = Email;
-            personWithoutID.Nationality = Nationality;
+            personWithoutID.NationalityCountryID = NationalityCountryID;
             personWithoutID.ImagePath = ImagePath;
 
             return personWithoutID;
@@ -85,7 +93,7 @@ namespace DVLD_Buisness
         private bool _AddPerson()
         {
             stPersonWithoutID personWithoutID = _FillPersonStruct();
-            PersonID = DVLD_DataAccess.clsPeopleData.AddPerson(personWithoutID);
+            PersonID = clsPeopleData.AddPerson(personWithoutID);
 
             return (PersonID != -1);
         }
@@ -97,7 +105,7 @@ namespace DVLD_Buisness
 
         public static DataTable ListPeople()
         {
-            return DVLD_DataAccess.clsPeopleData.ListPeople();
+            return clsPeopleData.ListPeople();
         }
 
         public bool Save()

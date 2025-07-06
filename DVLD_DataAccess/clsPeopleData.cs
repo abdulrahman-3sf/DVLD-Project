@@ -9,6 +9,66 @@ namespace DVLD_DataAccess
 {
     public class clsPeopleData
     {
+        public static bool GetPersonInfoByID(int PersonID, ref stPersonWithoutID Person)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = "select * from People where PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    Person.NationalNo = (string)reader["NationalNo"];
+                    Person.FirstName = (string)reader["FirstName"];
+                    Person.SecondName = (string)reader["SecondName"];
+                    Person.LastName = (string)reader["LastName"];
+                    Person.DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Person.Gender = (DVLD_Shared.enGender)reader["Gendor"];
+                    Person.Address = (string)reader["Address"];
+                    Person.Phone = (string)reader["Phone"];
+                    Person.NationalityCountryID = (int)reader["NationalityCountryID"];
+                    
+                    if (reader["ThirdName"] == DBNull.Value)
+                        Person.ThirdName = "";
+                    else
+                        Person.ThirdName = (string)reader["ThirdName"];
+
+                    if (reader["Email"] == DBNull.Value)
+                        Person.Email = "";
+                    else
+                        Person.Email = (string)reader["Email"];
+
+                    if (reader["ImagePath"] == DBNull.Value)
+                        Person.ImagePath = "";
+                    else
+                        Person.ImagePath = (string)reader["ImagePath"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static DataTable ListPeople()
         {
             DataTable dt = new DataTable();
@@ -58,7 +118,7 @@ namespace DVLD_DataAccess
             command.Parameters.AddWithValue("@Gendor", personWithoutID.Gender);
             command.Parameters.AddWithValue("@Address", personWithoutID.Address);
             command.Parameters.AddWithValue("@Phone", personWithoutID.Phone);
-            command.Parameters.AddWithValue("@NationalityCountryID", personWithoutID.Nationality);
+            command.Parameters.AddWithValue("@NationalityCountryID", personWithoutID.NationalityCountryID);
 
             if (personWithoutID.ThirdName != "")
                 command.Parameters.AddWithValue("@ThirdName", personWithoutID.ThirdName);
