@@ -98,10 +98,12 @@ namespace DVLD_Buisness
             return (PersonID != -1);
         }
 
-        //private bool _UpdatePerson()
-        //{
-        //    return true;
-        //}
+        private bool _UpdatePerson()
+        {
+            stPersonWithoutID personWithoutID = _FillPersonStruct();
+
+            return clsPeopleData.UpdatePerson(PersonID, personWithoutID);
+        }
 
         public static clsPeople Find(int PersonID)
         {
@@ -125,11 +127,6 @@ namespace DVLD_Buisness
                 return null;
         }
 
-        public static DataTable ListPeople()
-        {
-            return clsPeopleData.ListPeople();
-        }
-
         public bool Save()
         {
             switch (Mode)
@@ -143,12 +140,16 @@ namespace DVLD_Buisness
                     {
                         return false;
                     }
-                //case enMode.Update:
-                //    return _UpdatePerson();
+                case enMode.Update:
+                    return _UpdatePerson();
                 default:
                     return false;
             }
         }
 
+        public static DataTable ListPeople()
+        {
+            return clsPeopleData.ListPeople();
+        }
     }
 }

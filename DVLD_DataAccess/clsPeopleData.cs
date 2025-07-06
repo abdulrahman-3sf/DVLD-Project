@@ -185,6 +185,71 @@ namespace DVLD_DataAccess
             return PersonID;
         }
 
+        public static bool UpdatePerson(int PersonID, stPersonWithoutID personWithoutID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"update People
+                     set NationalNo = @NationalNo,
+                         FirstName = @FirstName,
+                         SecondName = @SecondName,
+                         ThirdName = @ThirdName,
+                         LastName = @LastName,
+                         DateOfBirth = @DateOfBirth,
+                         Gendor = @Gendor,
+                         Address = @Address,
+                         Phone = @Phone,
+                         Email = @Email,
+                         NationalityCountryID = @NationalityCountryID,
+                         ImagePath = @ImagePath
+                         where PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo", personWithoutID.NationalNo);
+            command.Parameters.AddWithValue("@FirstName", personWithoutID.FirstName);
+            command.Parameters.AddWithValue("@SecondName", personWithoutID.SecondName);
+            command.Parameters.AddWithValue("@LastName", personWithoutID.LastName);
+            command.Parameters.AddWithValue("@DateOfBirth", personWithoutID.DateOfBirth);
+            command.Parameters.AddWithValue("@Gendor", personWithoutID.Gender);
+            command.Parameters.AddWithValue("@Address", personWithoutID.Address);
+            command.Parameters.AddWithValue("@Phone", personWithoutID.Phone);
+            command.Parameters.AddWithValue("@NationalityCountryID", personWithoutID.NationalityCountryID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            if (personWithoutID.ThirdName != "")
+                command.Parameters.AddWithValue("@ThirdName", personWithoutID.ThirdName);
+            else
+                command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+
+            if (personWithoutID.Email != "")
+                command.Parameters.AddWithValue("@Email", personWithoutID.Email);
+            else
+                command.Parameters.AddWithValue("@Email", DBNull.Value);
+
+            if (personWithoutID.ImagePath != "")
+                command.Parameters.AddWithValue("@ImagePath", personWithoutID.ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
         public static DataTable ListPeople()
         {
             DataTable dt = new DataTable();
