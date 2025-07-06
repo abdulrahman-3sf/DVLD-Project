@@ -103,6 +103,16 @@ namespace DVLD_Buisness
         //    return true;
         //}
 
+        public static clsPeople Find(int PersonID)
+        {
+            stPersonWithoutID personWithoutID = new stPersonWithoutID();
+
+            if (clsPeopleData.GetPersonInfoByID(PersonID, ref personWithoutID))
+                return new clsPeople(PersonID, personWithoutID);
+            else
+                return null;
+        }
+
         public static DataTable ListPeople()
         {
             return clsPeopleData.ListPeople();
