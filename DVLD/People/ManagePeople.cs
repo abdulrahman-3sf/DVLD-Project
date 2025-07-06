@@ -8,6 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.People;
 using DVLD_Buisness;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -23,7 +24,7 @@ namespace DVLD
             InitializeComponent();
         }
 
-        private void _RefreshComboBoxData()
+        private void _RefreshPeople()
         {
             dt = DVLD_Buisness.clsPeople.ListPeople();
             PeopleDT = dt.DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName", "DateOfBirth", "Gendor", "Address", "Phone", "Email", "NationalityCountryID");
@@ -47,7 +48,7 @@ namespace DVLD
         private void ManagePeople_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedItem = "None";
-            _RefreshComboBoxData();
+            _RefreshPeople();
             textBox1.Visible = false;
         }
 
@@ -58,10 +59,10 @@ namespace DVLD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddEditPersonInfo form = new AddEditPersonInfo();
+            Form form = new frmAddEditPersonInfo();
             form.ShowDialog();
 
-            _RefreshComboBoxData();
+            _RefreshPeople();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace DVLD
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            _RefreshComboBoxData();
+            _RefreshPeople();
         }
     }
 }

@@ -19,9 +19,6 @@ namespace DVLD
             InitializeComponent();
         }
 
-        // Add Person (Done | BUT: CountryID, Validation on NationalNo(check if exists in dataView) on email and others field that not accept null.)
-        // save image.
-
         // Update Person
         // Delete Person
         // Filter People on DataView

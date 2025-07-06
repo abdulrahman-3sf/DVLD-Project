@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="People\AddEditPersonInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="People\AddEditPersonInfo.Designer.cs">
-      <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="People\EditPersonInfoController.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="People\EditPersonInfoController.Designer.cs">
-      <DependentUpon>EditPersonInfoController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddEditPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddEditPersonInfo.Designer.cs">
+      <DependentUpon>frmAddEditPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="People\ManagePeople.cs">
       <SubType>Form</SubType>
@@ -72,14 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="People\AddEditPersonInfo.resx">
-      <DependentUpon>AddEditPersonInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="People\EditPersonInfoController.resx">
-      <DependentUpon>EditPersonInfoController.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddEditPersonInfo.resx">
+      <DependentUpon>frmAddEditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\ManagePeople.resx">
       <DependentUpon>ManagePeople.cs</DependentUpon>
@@ -458,6 +449,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Written Test 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="People\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

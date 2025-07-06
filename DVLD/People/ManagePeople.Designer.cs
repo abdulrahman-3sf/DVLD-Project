@@ -109,7 +109,7 @@
             // button2
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1309, 9);
+            this.button2.Location = new System.Drawing.Point(1341, 9);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(45, 36);
             this.button2.TabIndex = 6;
@@ -119,7 +119,7 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1258, 9);
+            this.button1.Location = new System.Drawing.Point(1290, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 36);
             this.button1.TabIndex = 5;
