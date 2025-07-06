@@ -82,7 +82,7 @@ namespace DVLD
             person.Address = textBox5.Text;
             person.Phone = textBox10.Text;
             person.Email = textBox4.Text;
-            person.Nationality = Convert.ToInt32(textBox3.Text);
+            person.NationalityCountryID = Convert.ToInt32(textBox3.Text);
 
             if (radioButton1.Checked)
                 person.Gender = (DVLD_Buisness.clsPeople.enGender)Convert.ToInt32(radioButton1.Tag);

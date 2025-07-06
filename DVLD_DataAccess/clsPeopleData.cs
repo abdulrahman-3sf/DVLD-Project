@@ -129,36 +129,6 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        public static DataTable ListPeople()
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
-
-            string query = "select * from People";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                    dt.Load(reader);
-
-                reader.Close();
-            } catch (Exception ex)
-            {
-
-            } finally
-            {
-                connection.Close();
-            }
-
-            return dt;
-        }
-
         public static int AddPerson(stPersonWithoutID personWithoutID)
         {
             int PersonID = -1;
@@ -213,6 +183,38 @@ namespace DVLD_DataAccess
             }
 
             return PersonID;
+        }
+
+        public static DataTable ListPeople()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = "select * from People";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dt.Load(reader);
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
         }
     }
 }

@@ -65,7 +65,7 @@ namespace DVLD_Buisness
             Phone = person.Phone;
             Email = person.Email;
             NationalityCountryID = person.NationalityCountryID;
-            // CountryInfo = clsCountry.Find(NationalityCountryID);
+            CountryInfo = clsCountry.Find(NationalityCountryID);
             ImagePath = person.ImagePath;
             Mode = enMode.Update;
         }
@@ -98,7 +98,7 @@ namespace DVLD_Buisness
             return (PersonID != -1);
         }
 
-        //private bool _Update()
+        //private bool _UpdatePerson()
         //{
         //    return true;
         //}
@@ -122,7 +122,7 @@ namespace DVLD_Buisness
                         return false;
                     }
                 //case enMode.Update:
-                //    return _Update();
+                //    return _UpdatePerson();
                 default:
                     return false;
             }
