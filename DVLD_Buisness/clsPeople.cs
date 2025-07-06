@@ -156,5 +156,10 @@ namespace DVLD_Buisness
         {
             return clsPeopleData.DeletePerson(PersonID);
         }
+
+        public static bool IsPersonExist(int PersonID)
+        {
+            return clsPeopleData.IsPersonExist(PersonID);
+        }
     }
 }
