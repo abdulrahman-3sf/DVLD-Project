@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD.People
 {
@@ -32,6 +34,14 @@ namespace DVLD.People
             InitializeComponent();
 
             _Mode = enMode.AddNew;
+        }
+
+        public frmAddEditPersonInfo(int PersonID)
+        {
+            InitializeComponent();
+
+            _Mode = enMode.Update;
+            _PersonID = PersonID;
         }
 
         private void _ResetDefaultValues()
@@ -69,9 +79,46 @@ namespace DVLD.People
 
         }
 
+        private void _LoadData()
+        {
+            _Person = clsPeople.Find(_PersonID);
+
+            if (_Person == null)
+            {
+                MessageBox.Show("Person Not Found!");
+                this.Close();
+                return;
+            }
+
+            label14.Text = _PersonID.ToString();
+            textBox2.Text = _Person.NationalNo;
+            textBox1.Text = _Person.FirstName;
+            textBox6.Text = _Person.SecondName;
+            textBox7.Text = _Person.ThirdName;
+            textBox8.Text = _Person.LastName;
+            dateTimePicker2.Value = _Person.DateOfBirth;
+            textBox5.Text = _Person.Address;
+            textBox10.Text = _Person.Phone;
+            textBox4.Text = _Person.Email;
+            comboBox1.SelectedIndex = comboBox1.FindString(_Person.CountryInfo.CountryName);
+
+            if (_Person.Gender == 0)
+                radioButton1.Checked = true;
+            else
+                radioButton2.Checked = true;
+
+            if (_Person.ImagePath != "")
+                pictureBox9.ImageLocation = _Person.ImagePath;
+
+            linkLabel2.Visible = true;
+        }
+
         private void frmAddEditPersonInfo_Load(object sender, EventArgs e)
         {
             _ResetDefaultValues();
+
+            if (_Mode == enMode.Update)
+                _LoadData();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -127,10 +174,14 @@ namespace DVLD.People
             {
                 _PersonID = _Person.PersonID;
 
+                MessageBox.Show("Added Seccessfully!" + _Person.PersonID);
+
+                _Mode = enMode.Update;
+                label13.Text = "Update Person";
+                label14.Text = _PersonID.ToString();
+
                 // Trigger the event to send data back to the caller form.
                 DataBack?.Invoke(this, _Person.PersonID);
-
-                MessageBox.Show("Added Seccessfully!" + _Person.PersonID);
             }
             else
                 MessageBox.Show("Added Faild!");
