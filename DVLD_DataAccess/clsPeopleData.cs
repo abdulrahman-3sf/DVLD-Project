@@ -34,7 +34,7 @@ namespace DVLD_DataAccess
                     Person.SecondName = (string)reader["SecondName"];
                     Person.LastName = (string)reader["LastName"];
                     Person.DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Person.Gender = (DVLD_Shared.enGender)reader["Gendor"];
+                    Person.Gender = (enGender)Convert.ToInt32(reader["Gendor"]);
                     Person.Address = (string)reader["Address"];
                     Person.Phone = (string)reader["Phone"];
                     Person.NationalityCountryID = (int)reader["NationalityCountryID"];
@@ -59,6 +59,8 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
+                Console.WriteLine("#####ERROR#####: " + ex.Message);
+
                 isFound = false;
             }
             finally
@@ -94,7 +96,7 @@ namespace DVLD_DataAccess
                     Person.SecondName = (string)reader["SecondName"];
                     Person.LastName = (string)reader["LastName"];
                     Person.DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Person.Gender = (DVLD_Shared.enGender)reader["Gendor"];
+                    Person.Gender = (enGender)Convert.ToInt32(reader["Gendor"]);
                     Person.Address = (string)reader["Address"];
                     Person.Phone = (string)reader["Phone"];
                     Person.NationalityCountryID = (int)reader["NationalityCountryID"];

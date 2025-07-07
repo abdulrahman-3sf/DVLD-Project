@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowPersonInfo));
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.button1 = new System.Windows.Forms.Button();
+            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.SuspendLayout();
             // 
             // label1
@@ -44,13 +44,6 @@
             this.label1.TabIndex = 117;
             this.label1.Text = "Person Details";
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 78);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(741, 240);
-            this.ctrlPersonCard1.TabIndex = 118;
-            // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
@@ -59,6 +52,14 @@
             this.button1.Size = new System.Drawing.Size(45, 36);
             this.button1.TabIndex = 119;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 78);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(741, 240);
+            this.ctrlPersonCard1.TabIndex = 118;
             // 
             // frmShowPersonInfo
             // 

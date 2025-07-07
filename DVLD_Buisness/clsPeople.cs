@@ -60,7 +60,7 @@ namespace DVLD_Buisness
             ThirdName = person.ThirdName;
             LastName = person.LastName;
             DateOfBirth = person.DateOfBirth;
-            Gender = (enGender)person.Gender;
+            Gender = (enGender)(int)person.Gender;
             Address = person.Address;
             Phone = person.Phone;
             Email = person.Email;
@@ -80,7 +80,7 @@ namespace DVLD_Buisness
             personWithoutID.ThirdName = ThirdName;
             personWithoutID.LastName = LastName;
             personWithoutID.DateOfBirth = DateOfBirth;
-            personWithoutID.Gender = (DVLD_Shared.enGender)Gender;
+            personWithoutID.Gender = (DVLD_Shared.enGender)(int)Gender;
             personWithoutID.Address = Address;
             personWithoutID.Phone = Phone;
             personWithoutID.Email = Email;

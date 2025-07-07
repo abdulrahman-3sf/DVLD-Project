@@ -23,5 +23,10 @@ namespace DVLD.People
             InitializeComponent();
             ctrlPersonCard1.LoadPersonInfo(NationalNo);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
