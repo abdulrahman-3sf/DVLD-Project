@@ -1,6 +1,6 @@
 ﻿namespace DVLD.People
 {
-    partial class frmFindPerson
+    partial class frmShowPersonInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFindPerson));
-            this.ctrlPersonCardWithFilter1 = new DVLD.People.Controls.ctrlPersonCardWithFilter();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShowPersonInfo));
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCardWithFilter1
-            // 
-            this.ctrlPersonCardWithFilter1.FilterEnable = true;
-            this.ctrlPersonCardWithFilter1.Location = new System.Drawing.Point(12, 75);
-            this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
-            this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(744, 321);
-            this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 17F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(313, 24);
+            this.label1.Location = new System.Drawing.Point(288, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 28);
-            this.label1.TabIndex = 116;
-            this.label1.Text = "Find Person";
+            this.label1.Size = new System.Drawing.Size(180, 28);
+            this.label1.TabIndex = 117;
+            this.label1.Text = "Person Details";
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 78);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(741, 240);
+            this.ctrlPersonCard1.TabIndex = 118;
             // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(711, 402);
+            this.button1.Location = new System.Drawing.Point(708, 324);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 36);
-            this.button1.TabIndex = 115;
+            this.button1.TabIndex = 119;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // frmFindPerson
+            // frmShowPersonInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 447);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(765, 369);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.ctrlPersonCardWithFilter1);
-            this.Name = "frmFindPerson";
-            this.Text = "frmFindPerson";
+            this.Controls.Add(this.ctrlPersonCard1);
+            this.Controls.Add(this.label1);
+            this.Name = "frmShowPersonInfo";
+            this.Text = "frmShowPersonInfo";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,8 +77,8 @@
 
         #endregion
 
-        private Controls.ctrlPersonCardWithFilter ctrlPersonCardWithFilter1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private ctrlPersonCard ctrlPersonCard1;
+        private System.Windows.Forms.Button button1;
     }
 }
