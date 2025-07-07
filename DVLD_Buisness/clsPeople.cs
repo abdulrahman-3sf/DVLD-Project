@@ -17,7 +17,7 @@ namespace DVLD_Buisness
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-        public string FullNmae { get { return FirstName + " " + SecondName + " " + ThirdName + " " + LastName; } }
+        public string FullName { get { return FirstName + " " + SecondName + " " + ThirdName + " " + LastName; } }
         public DateTime DateOfBirth { get; set; }
         public enGender Gender { get; set; }
         public string Address { get; set; }
