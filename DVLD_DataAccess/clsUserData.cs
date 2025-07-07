@@ -122,5 +122,42 @@ namespace DVLD_DataAccess
 
             return UserID;
         }
+    
+        public static bool UpdateUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"update Users 
+                             set PersonID = @PersonID,
+                                 UserName = @UserName, 
+                                 Password = @Password,
+                                 IsActive = @IsActive
+                             where UserID = @UserID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }

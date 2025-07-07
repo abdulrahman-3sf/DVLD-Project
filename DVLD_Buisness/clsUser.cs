@@ -47,7 +47,7 @@ namespace DVLD_Buisness
 
         private bool _Update()
         {
-            return true;
+            return clsUserData.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
         }
 
         public static clsUser FindByUserID(int UserID)
