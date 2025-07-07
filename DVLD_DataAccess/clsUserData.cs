@@ -86,5 +86,41 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+    
+        public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive)
+        {
+            int UserID = -1;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"insert into Users (PersonID, UserName, Password, IsActive)
+                             values (@PersonID, @UserName, @Password, @IsActive);
+                             select SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int resultID))
+                    UserID = resultID;
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return UserID;
+        }
     }
 }

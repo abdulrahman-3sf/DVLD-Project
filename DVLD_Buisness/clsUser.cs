@@ -38,6 +38,18 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
+        private bool _AddUser()
+        {
+            UserID = clsUserData.AddNewUser(PersonID, UserName, Password, IsActive);
+
+            return (UserID != -1);
+        }
+
+        private bool _Update()
+        {
+            return true;
+        }
+
         public static clsUser FindByUserID(int UserID)
         {
             int PersonID = -1;
@@ -60,6 +72,27 @@ namespace DVLD_Buisness
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else
                 return null;
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddUser())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.Update:
+                    return _Update();
+
+                default:
+                    return false;
+            }
         }
     }
 }
