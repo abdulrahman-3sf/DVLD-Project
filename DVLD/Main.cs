@@ -12,7 +12,7 @@ namespace DVLD
 {
     public partial class Main : Form
     {
-        private ManagePeople managePeopleForm;
+        private frmManagePeople managePeopleForm;
 
         public Main()
         {
@@ -27,7 +27,7 @@ namespace DVLD
         {
             if (managePeopleForm == null || managePeopleForm.IsDisposed)
             {
-                managePeopleForm = new ManagePeople();
+                managePeopleForm = new frmManagePeople();
                 managePeopleForm.MdiParent = this;
 
                 // Center the form inside the MDI parent

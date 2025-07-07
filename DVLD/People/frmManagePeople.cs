@@ -14,12 +14,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD
 {
-    public partial class ManagePeople : Form
+    public partial class frmManagePeople : Form
     {
         private DataTable dt;
         private DataTable PeopleDT;
 
-        public ManagePeople()
+        public frmManagePeople()
         {
             InitializeComponent();
         }
