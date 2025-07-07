@@ -38,13 +38,25 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
-        public static clsUser Find(int UserID)
+        public static clsUser FindByUserID(int UserID)
         {
             int PersonID = -1;
             string UserName = "", Password = "";
             bool IsActive = false;
 
             if (clsUserData.GetUserInfoByUserID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            else
+                return null;
+        }
+
+        public static clsUser FindByPersonID(int PersonID)
+        {
+            int UserID = -1;
+            string UserName = "", Password = "";
+            bool IsActive = false;
+
+            if (clsUserData.GetUserInfoByPersonID(ref UserID, PersonID, ref UserName, ref Password, ref IsActive))
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else
                 return null;
