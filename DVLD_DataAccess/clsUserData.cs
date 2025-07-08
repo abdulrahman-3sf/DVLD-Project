@@ -168,8 +168,8 @@ namespace DVLD_DataAccess
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"SELECT       Users.UserID, People.PersonID, FullName = People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName, Users.UserName, Users.IsActive
-                         FROM            People INNER JOIN
-                         Users ON People.PersonID = Users.PersonIDك";
+                         FROM            Users INNER JOIN
+                         People ON Users.PersonID = People.PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
