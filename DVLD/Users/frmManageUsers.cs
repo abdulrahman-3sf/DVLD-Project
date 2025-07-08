@@ -172,6 +172,15 @@ namespace DVLD.Users
             }
         }
 
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmChangePassword(UserID);
+            form.ShowDialog();
+
+            _RefreashUsers();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Form form = new frmAddEditUserInfo();
@@ -179,6 +188,7 @@ namespace DVLD.Users
 
             _RefreashUsers();
         }
+        
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
