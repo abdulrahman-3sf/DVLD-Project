@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,11 @@ namespace DVLD_Buisness
                 default:
                     return false;
             }
+        }
+
+        public static DataTable ListUsers()
+        {
+            return clsUserData.ListUsers();
         }
     }
 }
