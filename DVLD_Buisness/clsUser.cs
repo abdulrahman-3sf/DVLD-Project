@@ -110,5 +110,10 @@ namespace DVLD_Buisness
         {
             return clsUserData.IsUserExistByUserID(UserID);
         }
+
+        public static bool IsUserExistByPersonID(int PersonID)
+        {
+            return clsUserData.IsUserExistByPersonID(PersonID);
+        }
     }
 }
