@@ -167,7 +167,9 @@ namespace DVLD_DataAccess
 
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = "select * from Users";
+            string query = @"SELECT       Users.UserID, People.PersonID, FullName = People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName, Users.UserName, Users.IsActive
+                         FROM            People INNER JOIN
+                         Users ON People.PersonID = Users.PersonIDك";
 
             SqlCommand command = new SqlCommand(query, connection);
 
