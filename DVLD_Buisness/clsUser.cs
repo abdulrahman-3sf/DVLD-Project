@@ -105,5 +105,10 @@ namespace DVLD_Buisness
         {
             return clsUserData.DeleteUser(UserID);
         }
+
+        public static bool IsUserExistByUserID(int UserID)
+        {
+            return clsUserData.IsUserExistByUserID(UserID);
+        }
     }
 }
