@@ -309,6 +309,7 @@
             this.Controls.Add(this.label13);
             this.Name = "frmAddEditUserInfo";
             this.Text = "frmAddEditUserInfo";
+            this.Load += new System.EventHandler(this.frmAddEditUserInfo_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

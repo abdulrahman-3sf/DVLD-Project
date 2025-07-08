@@ -9,18 +9,20 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD.Users
 {
     public partial class frmAddEditUserInfo : Form
     {
-        private int _PersonID = -1;
-        private int _UserID = -1;
-        private bool alloTabChange = false;
         private clsUser _User;
+        private int _UserID = -1;
+        private int _PersonID = -1;
 
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
+
+        private bool alloTabChange = false;
 
         public frmAddEditUserInfo()
         {
@@ -31,8 +33,63 @@ namespace DVLD.Users
         public frmAddEditUserInfo(int UserID)
         {
             InitializeComponent();
-            _UserID = UserID;
+
             _Mode = enMode.Update;
+            _UserID = UserID;
+        }
+
+        private void _ResetDefaultData()
+        {
+            if (_Mode == enMode.AddNew)
+            {
+                _User = new clsUser();
+
+                label13.Text = "Add New Person";
+                alloTabChange = false;
+                button3.Visible = false;
+                tabControl1.SelectedIndex = 0;
+            } else
+            {
+                label13.Text = "Update User";
+                alloTabChange = true;
+                button3.Visible = true;
+            }
+
+            label6.Text = "N/A";
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            checkBox1.Checked = true;
+        }
+
+        private void _LoadData()
+        {
+            _User = clsUser.FindByUserID(_UserID);
+
+            if (_User == null)
+            {
+                MessageBox.Show("This User does not Exist!");
+                return;
+            }
+
+            label6.Text = _User.UserID.ToString();
+            textBox1.Text = _User.UserName;
+            textBox2.Text = _User.Password;
+            textBox3.Text = _User.Password;
+            checkBox1.Checked = _User.IsActive;
+            
+            ctrlPersonCardWithFilter1.LoadPersonInfo(_User.PersonID);
+            ctrlPersonCardWithFilter1.FilterEnable = false;
+
+            _PersonID = _User.PersonID;
+        }
+
+        private void frmAddEditUserInfo_Load(object sender, EventArgs e)
+        {
+            _ResetDefaultData();
+
+            if (_Mode == enMode.Update)
+                _LoadData();
         }
 
         private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
@@ -48,7 +105,7 @@ namespace DVLD.Users
                 return;
             }
 
-            if (clsUser.IsUserExistByPersonID(_PersonID))
+            if (clsUser.IsUserExistByPersonID(_PersonID) && _Mode == enMode.AddNew)
             {
                 MessageBox.Show("This Person has User in the System! Select Another Person.");
                 return;
@@ -72,7 +129,7 @@ namespace DVLD.Users
                 return;
             }
 
-            if (clsUser.IsUserExistByPersonID(_PersonID))
+            if (clsUser.IsUserExistByPersonID(_PersonID) && _Mode == enMode.AddNew)
             {
                 MessageBox.Show("This Person has User in the System! Select Another Person.");
                 return;
@@ -84,8 +141,6 @@ namespace DVLD.Users
                 return;
             }
 
-            _User = new clsUser();
-
             _User.PersonID = _PersonID;
             _User.UserName = textBox1.Text.Trim();
             _User.Password = textBox2.Text.Trim();
@@ -94,14 +149,13 @@ namespace DVLD.Users
             if (_User.Save())
             {
                 _UserID = _User.UserID;
-
-                MessageBox.Show("Added Seccessfully!" + _User.UserID);
-
                 _Mode = enMode.Update;
                 label13.Text = "Update User";
                 label6.Text = _UserID.ToString();
 
                 ctrlPersonCardWithFilter1.FilterEnable = false;
+
+                MessageBox.Show("Added Seccessfully!" + _User.UserID);
             }
             else
                 MessageBox.Show("Added Faild!");
