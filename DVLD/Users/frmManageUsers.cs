@@ -1,4 +1,5 @@
-﻿using DVLD_Buisness;
+﻿using DVLD.People;
+using DVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,7 +133,10 @@ namespace DVLD.Users
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Form form = new frmAddEditUserInfo();
+            form.ShowDialog();
 
+            _RefreashUsers();
         }
 
         private void button2_Click(object sender, EventArgs e)

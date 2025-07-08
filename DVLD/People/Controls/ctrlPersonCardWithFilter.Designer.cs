@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -36,15 +35,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 78);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(741, 240);
-            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // label1
             // 
@@ -61,7 +54,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "",
+            "None",
             "Person ID",
             "National No"});
             this.comboBox1.Location = new System.Drawing.Point(95, 27);
@@ -109,7 +102,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 20);
             this.textBox1.TabIndex = 147;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 78);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(741, 240);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // ctrlPersonCardWithFilter
             // 

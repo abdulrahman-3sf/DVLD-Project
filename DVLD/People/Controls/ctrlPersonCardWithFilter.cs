@@ -118,10 +118,5 @@ namespace DVLD.People.Controls
             textBox1.Text = PersonID.ToString();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-        }
     }
 }
