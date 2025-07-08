@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAYRJREFUWEft
         ltGNwyAMhiulg3SUGyWj3CZ9TJslOsoNUaQ+5mTHPwcOYJP25aR8ElJkiG2MbTidDv4T5+n5db4/v4c5
@@ -131,18 +128,6 @@
         ixZnlM63BMKOku35R8szOFONi2Rz5pXE1DQrDOBG03KwMQ4cTriqoJUoVePAcMJVYTUlpnFg/J/Kqui7
         wG0cFJzw7R6QAnUbuo2DpJewrkZelUkajZ7qIeaUp7lteNOJ915EAHd5hyLsulZN/STvOx5rrxijQzKf
         PNd3R62NJGP6/OZ2jAjhqX5w0MkvLkjlQBhPaBAAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAXVJREFUWEft
-        V8GRgzAMTClXypVCEfFNnumEOacQyjC8mFTA4wrgRtgCsdhgYnPcIzuzM0HYrC3JsnK5vPHGC/j6Nnel
-        60rpule6bpVuSrLhuOy4leZDCPvY0hiclw0b4swK52WB0qbwiAVoCpyfDIrzUijI/F6wybYQCrHF+cnY
-        uYAe5ycjMgEdmxLnJ+P0JCREeiF/AjIiCtFx4hI2HMOxpMQkVn9Siv8Frg/zyb9dOMYzf+g94G7AweVs
-        cwsY487vs4cDE4+9QEIs5jmmeaohilvaQjNfgPeueHKYuG/YFSa/+LS7+QIWY3p6R94iUSKHUeZREB6X
-        Ak3BC/CNlSIyJ1wt2W5cIi6f4ey7Xc08hUlItvnzRgvn21GAwymQtuuj/sHd4QLIO6tVM5BQ0aRvOM8s
-        3pGdw4C6I3BXO9lhkpFdPkd4YDP+a+ywH8AFWO8c0DMQphtz6glkwrnd5++YJNjFXAfItrsOpEIIjv+g
-        Vo/eWfgFC/SUdziFx7UAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

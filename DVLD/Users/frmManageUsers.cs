@@ -131,7 +131,16 @@ namespace DVLD.Users
             label3.Text = (dataGridView1.Rows.Count).ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmUserInfo(UserID);
+            form.ShowDialog();
+
+            _RefreashUsers();
+        }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form form = new frmAddEditUserInfo();
             form.ShowDialog();
@@ -139,6 +148,37 @@ namespace DVLD.Users
             _RefreashUsers();
         }
 
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmAddEditUserInfo(UserID);
+            form.ShowDialog();
+
+            _RefreashUsers();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            if (clsUser.DeleteUser(UserID))
+            {
+                MessageBox.Show("Person Deleted Successfully.");
+                _RefreashUsers();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAddEditUserInfo();
+            form.ShowDialog();
+
+            _RefreashUsers();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

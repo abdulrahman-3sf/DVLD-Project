@@ -28,6 +28,13 @@ namespace DVLD.Users
             _Mode = enMode.AddNew;
         }
 
+        public frmAddEditUserInfo(int UserID)
+        {
+            InitializeComponent();
+            _UserID = UserID;
+            _Mode = enMode.Update;
+        }
+
         private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
         {
             _PersonID = obj;
@@ -93,6 +100,8 @@ namespace DVLD.Users
                 _Mode = enMode.Update;
                 label13.Text = "Update User";
                 label6.Text = _UserID.ToString();
+
+                ctrlPersonCardWithFilter1.FilterEnable = false;
             }
             else
                 MessageBox.Show("Added Faild!");
