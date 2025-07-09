@@ -1,4 +1,5 @@
-﻿using DVLD_Buisness;
+﻿using DVLD.Global;
+using DVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,23 @@ namespace DVLD.LogIn
 {
     public partial class frmLogin : Form
     {
-        private clsUser _User;
-        private int _UserID = -1;
-        private bool _RememberUser = true;
-
         public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            string UserName = "", Password = "";
+
+            if (clsGlobal.GetStoredUsers(ref UserName, ref Password))
+            {
+                textBox1.Text = UserName;
+                textBox2.Text = Password;
+                checkBox1.Checked = true;
+            }
+            else
+                checkBox1.Checked = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -27,8 +38,7 @@ namespace DVLD.LogIn
             string UserName = textBox1.Text.Trim();
             string Password = textBox2.Text.Trim();
 
-            _User = clsUser.FindByUsernameAndUserID(UserName, Password);
-            _RememberUser = checkBox1.Checked;
+            clsUser _User = clsUser.FindByUsernameAndUserID(UserName, Password);
 
             if (_User == null)
             {
@@ -42,9 +52,15 @@ namespace DVLD.LogIn
                 return;
             }
 
-            _UserID = _User.UserID;
+            if (checkBox1.Checked)
+            {
+                clsGlobal.StoreRememberUsers(UserName, Password);
+            }
 
-            Form form = new Main(_UserID);
+            clsGlobal.CurrentUser = _User;
+
+            this.Hide();
+            Form form = new Main(this);
             form.ShowDialog();
         }
     }

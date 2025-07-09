@@ -1,4 +1,6 @@
-﻿using DVLD.Users;
+﻿using DVLD.Global;
+using DVLD.LogIn;
+using DVLD.Users;
 using DVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -14,24 +16,18 @@ namespace DVLD
 {
     public partial class Main : Form
     {
-        private clsUser _User;
-        private int _UserID;
+        private frmLogin _frmLogin;
 
         private frmManagePeople managePeopleForm;
         private frmManageUsers mangeUsersForm;
         private frmUserInfo userInfo;
         private frmChangePassword userChangePassword;
 
-        public Main()
-        {
-            InitializeComponent();
-        }
-
-        public Main(int UserID)
+        public Main(frmLogin Login)
         {
             InitializeComponent();
 
-            _UserID = UserID;
+            _frmLogin = Login;
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,7 +56,7 @@ namespace DVLD
         {
             if (userInfo == null || userInfo.IsDisposed)
             {
-                userInfo = new frmUserInfo(_UserID);
+                userInfo = new frmUserInfo(clsGlobal.CurrentUser.UserID);
                 userInfo.MdiParent = this;
 
                 userInfo.Show();
@@ -71,7 +67,7 @@ namespace DVLD
         {
             if (userChangePassword == null || userChangePassword.IsDisposed)
             {
-                userChangePassword = new frmChangePassword(_UserID);
+                userChangePassword = new frmChangePassword(clsGlobal.CurrentUser.UserID);
                 userChangePassword.MdiParent = this;
 
                 userChangePassword.Show();
@@ -80,9 +76,9 @@ namespace DVLD
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _UserID = -1;
+            clsGlobal.CurrentUser = null;
+            _frmLogin.Show();
             this.Close();
         }
-
     }
 }
