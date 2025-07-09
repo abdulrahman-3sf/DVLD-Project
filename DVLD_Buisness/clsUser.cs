@@ -25,7 +25,7 @@ namespace DVLD_Buisness
             PersonID = -1;
             UserName = "";
             Password = "";
-            IsActive = false;
+            IsActive = true;
             Mode = enMode.AddNew;
         }
 
@@ -70,6 +70,18 @@ namespace DVLD_Buisness
             bool IsActive = false;
 
             if (clsUserData.GetUserInfoByPersonID(ref UserID, PersonID, ref UserName, ref Password, ref IsActive))
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            else
+                return null;
+        }
+
+        public static clsUser FindByUsernameAndUserID(string UserName, string Password)
+        {
+            int UserID = -1;
+            int PersonID = -1;
+            bool IsActive = false;
+
+            if (clsUserData.GetUserInfoByUsernameAndPassword(ref UserID, ref PersonID, UserName, Password, ref IsActive))
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else
                 return null;

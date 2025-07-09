@@ -93,7 +93,6 @@ namespace DVLD.Users
                 return;
             }
 
-
             if (FilterColumn == "UserID" || FilterColumn == "PersonID")
                 _dtUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, textBox1.Text.Trim());
             else

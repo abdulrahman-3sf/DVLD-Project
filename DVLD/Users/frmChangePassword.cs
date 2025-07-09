@@ -31,19 +31,19 @@ namespace DVLD.Users
         {
             clsUser User = clsUser.FindByUserID(_UserID);
 
-            if (User.Password != textBox1.Text)
+            if (User.Password != textBox1.Text.Trim())
             {
                 MessageBox.Show("The Current Password Incorrect!");
                 return;
             }
 
-            if (textBox2.Text != textBox3.Text)
+            if (textBox2.Text.Trim() != textBox3.Text.Trim())
             {
                 MessageBox.Show("The Password must be the same!");
                 return;
             }
 
-            User.Password = textBox2.Text;
+            User.Password = textBox2.Text.Trim();
 
             if (User.Save())
                 MessageBox.Show("Password Updated Seccessfully!");

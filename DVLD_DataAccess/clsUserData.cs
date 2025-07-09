@@ -87,7 +87,47 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
-    
+
+        public static bool GetUserInfoByUsernameAndPassword(ref int UserID, ref int PersonID, string UserName, string Password, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = "select * from Users where UserName = @UserName and Password = @Password";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    UserID = (int)reader["UserID"];
+                    PersonID = (int)reader["PersonID"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive)
         {
             int UserID = -1;
@@ -286,6 +326,37 @@ namespace DVLD_DataAccess
             }
 
             return isFound;
+        }
+
+        public static bool ChangePassword(int UserID, string NewPassword)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"update Users 
+                             set Password = @NewPassword,
+                             where UserID = @UserID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NewPassword", NewPassword);
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
         }
     }
 }
