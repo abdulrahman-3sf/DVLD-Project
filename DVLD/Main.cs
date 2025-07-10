@@ -1,4 +1,5 @@
-﻿using DVLD.Global;
+﻿using DVLD.ApplicationTypes;
+using DVLD.Global;
 using DVLD.LogIn;
 using DVLD.Users;
 using DVLD_Buisness;
@@ -22,6 +23,7 @@ namespace DVLD
         private frmManageUsers mangeUsersForm;
         private frmUserInfo userInfo;
         private frmChangePassword userChangePassword;
+        private frmManageApplicationTypes manageApplicationTypes;
 
         public Main(frmLogin Login)
         {
@@ -79,6 +81,18 @@ namespace DVLD
             clsGlobal.CurrentUser = null;
             _frmLogin.Show();
             this.Close();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageApplicationTypes == null || manageApplicationTypes.IsDisposed)
+            {
+                manageApplicationTypes = new frmManageApplicationTypes();
+                manageApplicationTypes.MdiParent = this;
+
+                manageApplicationTypes.Show();
+            }
+            
         }
     }
 }
