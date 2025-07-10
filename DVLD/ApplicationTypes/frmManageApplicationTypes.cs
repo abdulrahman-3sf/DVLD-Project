@@ -14,7 +14,6 @@ namespace DVLD.ApplicationTypes
     public partial class frmManageApplicationTypes : Form
     {
         private static DataTable _dtAllApplicationTypes = clsApplicationTypes.ListApplicationTypes();
-        private DataTable _dtApplicationTypes = _dtAllApplicationTypes.DefaultView.ToTable(false, "ApplicationTypeID", "ApplicationTypeTitle", "ApplicationFees");
         
         public frmManageApplicationTypes()
         {
@@ -24,9 +23,8 @@ namespace DVLD.ApplicationTypes
         private void _RefreashApplicationTypes()
         {
             _dtAllApplicationTypes = clsApplicationTypes.ListApplicationTypes();
-            _dtApplicationTypes = _dtAllApplicationTypes.DefaultView.ToTable(false, "ApplicationTypeID", "ApplicationTypeTitle", "ApplicationFees");
 
-            dataGridView1.DataSource = _dtApplicationTypes;
+            dataGridView1.DataSource = _dtAllApplicationTypes;
             label2.Text = (dataGridView1.Rows.Count).ToString();
         }
 

@@ -1,6 +1,7 @@
 ﻿using DVLD.ApplicationTypes;
 using DVLD.Global;
 using DVLD.LogIn;
+using DVLD.TestTypes;
 using DVLD.Users;
 using DVLD_Buisness;
 using System;
@@ -24,6 +25,7 @@ namespace DVLD
         private frmUserInfo userInfo;
         private frmChangePassword userChangePassword;
         private frmManageApplicationTypes manageApplicationTypes;
+        private frmManageTestTypes manageTestTypes;
 
         public Main(frmLogin Login)
         {
@@ -92,7 +94,17 @@ namespace DVLD
 
                 manageApplicationTypes.Show();
             }
-            
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageTestTypes == null || manageTestTypes.IsDisposed)
+            {
+                manageTestTypes = new frmManageTestTypes();
+                manageTestTypes.MdiParent = this;
+
+                manageTestTypes.Show();
+            }
         }
     }
 }

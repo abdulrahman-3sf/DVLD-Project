@@ -132,9 +132,11 @@
             // 
             // manageTestTypesToolStripMenuItem
             // 
+            this.manageTestTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.TestType_32;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem
             // 
