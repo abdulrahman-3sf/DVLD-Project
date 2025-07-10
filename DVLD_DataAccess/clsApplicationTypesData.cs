@@ -10,6 +10,39 @@ namespace DVLD_DataAccess
 {
     public class clsApplicationTypesData
     {
+        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, float ApplicationFees)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"update Users 
+                             set ApplicationTypeTitle = @ApplicationTypeTitle, 
+                                 ApplicationFees = @ApplicationFees
+                             where ApplicationTypeID = @ApplicationTypeID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
+            command.Parameters.AddWithValue("@ApplicationFees", ApplicationFees);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
         public static DataTable ListApplicationTypes()
         {
             DataTable dt = new DataTable();

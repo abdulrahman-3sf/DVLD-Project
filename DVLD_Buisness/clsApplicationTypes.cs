@@ -28,6 +28,16 @@ namespace DVLD_Buisness
             this.ApplicationTypeFees = ApplicationTypeFees;
         }
 
+        private bool _UpdateApplicationType()
+        {
+            return clsApplicationTypesData.UpdateApplicationType(ApplicationTypeID, ApplicationTypeTitle, ApplicationTypeFees);
+        }
+
+        public bool Save()
+        {
+            return _UpdateApplicationType();
+        }
+
         public static DataTable ListApplicationTypes()
         {
             return clsApplicationTypesData.ListApplicationTypes();
