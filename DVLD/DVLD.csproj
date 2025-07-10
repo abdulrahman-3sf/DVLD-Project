@@ -115,6 +115,12 @@
     <Compile Include="TestTypes\frmManageTestTypes.Designer.cs">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestTypes\frmUpdateTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestTypes\frmUpdateTestType.Designer.cs">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\Controls\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestTypes\frmManageTestTypes.resx">
       <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestTypes\frmUpdateTestType.resx">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Controls\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>

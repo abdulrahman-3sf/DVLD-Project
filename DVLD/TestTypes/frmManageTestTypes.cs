@@ -49,6 +49,15 @@ namespace DVLD.TestTypes
             }
         }
 
+        private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int TestTypeID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmUpdateTestType(TestTypeID);
+            form.ShowDialog();
+
+            _RefreashTestTypes();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

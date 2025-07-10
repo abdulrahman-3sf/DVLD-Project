@@ -31,6 +31,28 @@ namespace DVLD_Buisness
             this.TestTypeFees = TestTypeFees;
         }
 
+        private bool _UpdateTestType()
+        {
+            return clsTestTypesData.UpdateTestType(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);
+        }
+
+        public static clsTestTypes Find(int TestTypeID)
+        {
+            string TestTypeTitle = "";
+            string TestTypeDescription = "";
+            float TestTypeFees = 0;
+
+            if (clsTestTypesData.GetTestType(TestTypeID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees))
+                return new clsTestTypes(TestTypeID, TestTypeTitle, TestTypeDescription, TestTypeFees);
+            else
+                return null;
+        }
+
+        public bool Save()
+        {
+            return _UpdateTestType();
+        }
+
         public static DataTable ListTestTypes()
         {
             return clsTestTypesData.ListTestTypes();
