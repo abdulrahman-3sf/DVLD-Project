@@ -33,6 +33,17 @@ namespace DVLD_Buisness
             return clsApplicationTypesData.UpdateApplicationType(ApplicationTypeID, ApplicationTypeTitle, ApplicationTypeFees);
         }
 
+        public static clsApplicationTypes Find(int ApplicationTypeID)
+        {
+            string ApplicationTypeTitle = "";
+            float ApplicationTypeFees = 0;
+
+            if (clsApplicationTypesData.GetAppicationType(ApplicationTypeID, ref ApplicationTypeTitle, ref ApplicationTypeFees))
+                return new clsApplicationTypes(ApplicationTypeID, ApplicationTypeTitle, ApplicationTypeFees);
+            else
+                return null;
+        }
+
         public bool Save()
         {
             return _UpdateApplicationType();
