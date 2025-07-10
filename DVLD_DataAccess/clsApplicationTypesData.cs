@@ -31,7 +31,7 @@ namespace DVLD_DataAccess
                     isFound = true;
 
                     ApplicationTypeTitle = (string)reader["ApplicationTypeTitle"];
-                    ApplicationFees = (float)reader["ApplicationFees"];
+                    ApplicationFees = (float)((decimal)reader["ApplicationFees"]);
                 }
 
                 reader.Close();

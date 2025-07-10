@@ -50,6 +50,10 @@ namespace DVLD.ApplicationTypes
         private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ApplicationTypeID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmUpdateApplicationType(ApplicationTypeID);
+            form.ShowDialog();
+
+            _RefreashApplicationTypes();
         }
 
         private void button2_Click(object sender, EventArgs e)
