@@ -95,5 +95,50 @@ namespace DVLD_DataAccess
 
             return ApplicationID;
         }
+
+        public static bool UpdateApplication(int ApplicationID, int ApplicationPersonID, DateTime ApplicationDate,
+            int ApplicationTypeID, byte ApplicationStatus, DateTime LastStatusDate,
+            float PaidFees, int CreatedByUserID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"update Applications
+                     set ApplicationPersonID = @ApplicationPersonID,
+                         ApplicationDate = @ApplicationDate,
+                         ApplicationTypeID = @ApplicationTypeID,
+                         ApplicationStatus = @ApplicationStatus,
+                         LastStatusDate = @LastStatusDate,
+                         PaidFees = @PaidFees,
+                         CreatedByUserID = @CreatedByUserID
+                         where ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationPersonID", ApplicationPersonID);
+            command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }

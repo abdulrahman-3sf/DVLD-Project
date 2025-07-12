@@ -60,11 +60,18 @@ namespace DVLD_Buisness
 
         private bool _AddNewApplication()
         {
-            int ID = clsApplicationsData.AddNewApplication(ApplicationPersonID, ApplicationDate,
+            ApplicationID = clsApplicationsData.AddNewApplication(ApplicationPersonID, ApplicationDate,
                 ApplicationTypeID, (byte)ApplicationStatus, LastStatusDate,
                 PaidFees, CreatedByUserID);
 
-            return (ID != -1);
+            return (ApplicationID != -1);
+        }
+
+        private bool _UpdateApplication()
+        {
+            return clsApplicationsData.UpdateApplication(ApplicationID, ApplicationPersonID, ApplicationDate,
+                ApplicationTypeID, (byte)ApplicationStatus, LastStatusDate,
+                PaidFees, CreatedByUserID);
         }
 
         public static clsApplications FindByApplicationID(int ApplicationID)
@@ -96,6 +103,9 @@ namespace DVLD_Buisness
                     }
                     else
                         return false;
+
+                case enMode.Update:
+                    return _UpdateApplication();
 
                 default:
                     return false;
