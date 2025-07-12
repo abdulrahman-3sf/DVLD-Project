@@ -45,6 +45,19 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
+        private bool _AddNewLocalDrivingLicenseApplication()
+        {
+            LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsData.AddNewLocalDrivingLicenseApplication(
+                ApplicationID, LicenseClassID);
+
+            return (LocalDrivingLicenseApplicationID != -1);
+        }
+
+        private bool _UpdateLocalDrivingLicenseApplication()
+        {
+            return clsLocalDrivingLicenseApplicationsData.UpdateLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
+        }
+
         public static clsApplications FindLocalDrivingLicenseApplicationByID(int LocalDrivingLicenseApplicationID)
         {
             int ApplicationID = -1, LicenseClassID = -1;
@@ -60,14 +73,6 @@ namespace DVLD_Buisness
             }
             else
                 return null;
-        }
-
-        private bool _AddNewLocalDrivingLicenseApplication()
-        {
-            LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsData.AddNewLocalDrivingLicenseApplication(
-                ApplicationID, LicenseClassID);
-
-            return (LocalDrivingLicenseApplicationID != -1);
         }
 
         public static clsApplications FindLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
@@ -105,6 +110,9 @@ namespace DVLD_Buisness
                     }
                     else
                         return false;
+
+                case enMode.Update:
+                    return _UpdateLocalDrivingLicenseApplication();
 
                 default:
                     return false;
