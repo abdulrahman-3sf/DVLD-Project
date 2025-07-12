@@ -54,7 +54,6 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "None",
             "Person ID",
             "National No"});
             this.comboBox1.Location = new System.Drawing.Point(95, 27);

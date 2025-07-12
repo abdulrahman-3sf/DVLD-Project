@@ -59,7 +59,7 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine("#####ERROR#####: " + ex.Message);
+                // Console.WriteLine("#####ERROR#####: " + ex.Message);
 
                 isFound = false;
             }
