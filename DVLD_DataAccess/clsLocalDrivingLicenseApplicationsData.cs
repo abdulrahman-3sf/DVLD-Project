@@ -10,47 +10,74 @@ namespace DVLD_DataAccess
 {
     public class clsLocalDrivingLicenseApplicationsData
     {
-        public static DataTable ListLocalDrivingLicenseApplications()
+        public static bool GetLocalDrivingLicenseApplicationInfoByID(int LocalDrivingLicenseApplicationID, ref int ApplicationID, ref int LicenseClassID)
         {
-            DataTable dt = new DataTable();
+            bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"SELECT       LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, LicenseClasses.ClassName, People.NationalNo, FullName = People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName, Applications.ApplicationDate, 
-                         Applications.ApplicationStatus,
-						 CASE
-							WHEN Applications.ApplicationStatus = 1 THEN 'New'
-							WHEN Applications.ApplicationStatus = 2 THEN 'Cancelled'
-							WHEN Applications.ApplicationStatus = 3 THEN 'Completed'
-							ELSE 'Unknown'
-						 END as Status
-FROM            LicenseClasses INNER JOIN
-                         LocalDrivingLicenseApplications ON LicenseClasses.LicenseClassID = LocalDrivingLicenseApplications.LicenseClassID INNER JOIN
-                         Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID INNER JOIN
-                         People ON Applications.ApplicantPersonID = People.PersonID";
+            string query = "select * from LocalDrivingLicenseApplications where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
 
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.HasRows)
-                    dt.Load(reader);
+                if (reader.Read())
+                {
+                    isFound = true;
+
+                    ApplicationID = (int)reader["ApplicationID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                }
 
                 reader.Close();
             }
             catch (Exception ex)
             {
-
+                isFound = false;
             }
             finally
             {
                 connection.Close();
             }
 
-            return dt;
+            return isFound;
         }
+
+        //public static DataTable ListLocalDrivingLicenseApplications()
+        //{
+        //    DataTable dt = new DataTable();
+
+        //    SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+        //    string query = "select * from LocalDrivingLicenseApplications_View";
+
+        //    SqlCommand command = new SqlCommand(query, connection);
+
+        //    try
+        //    {
+        //        connection.Open();
+        //        SqlDataReader reader = command.ExecuteReader();
+
+        //        if (reader.HasRows)
+        //            dt.Load(reader);
+
+        //        reader.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+
+        //    return dt;
+        //}
     }
 }
