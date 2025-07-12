@@ -62,6 +62,14 @@ namespace DVLD_Buisness
                 return null;
         }
 
+        private bool _AddNewLocalDrivingLicenseApplication()
+        {
+            LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsData.AddNewLocalDrivingLicenseApplication(
+                ApplicationID, LicenseClassID);
+
+            return (LocalDrivingLicenseApplicationID != -1);
+        }
+
         public static clsApplications FindLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
         {
             int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
@@ -78,6 +86,29 @@ namespace DVLD_Buisness
             }
             else
                 return null;
+        }
+
+        public bool Save()
+        {
+            base.Mode = (clsApplications.enMode)Mode;
+
+            if (!base.Save())
+                return false;
+
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewLocalDrivingLicenseApplication())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                default:
+                    return false;
+            }
         }
     }
 }

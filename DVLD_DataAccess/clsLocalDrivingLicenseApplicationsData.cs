@@ -86,6 +86,40 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
+        public static int AddNewLocalDrivingLicenseApplication(int ApplicationID, int LicenseClassID)
+        {
+            int LocalDrivingLicenseApplicationID = -1;
+
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+
+            string query = @"insert into LocalDrivingLicenseApplications (ApplicationID, LicenseClassID)
+                             values (@ApplicationID, @LicenseClassID);
+                             select SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int resultID))
+                    LocalDrivingLicenseApplicationID = resultID;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return LocalDrivingLicenseApplicationID;
+        }
+
         //public static DataTable ListLocalDrivingLicenseApplications()
         //{
         //    DataTable dt = new DataTable();
