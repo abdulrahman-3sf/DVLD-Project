@@ -58,6 +58,15 @@ namespace DVLD_Buisness
             Mode = enMode.Update;
         }
 
+        private bool _AddNewApplication()
+        {
+            int ID = clsApplicationsData.AddNewApplication(ApplicationPersonID, ApplicationDate,
+                ApplicationTypeID, (byte)ApplicationStatus, LastStatusDate,
+                PaidFees, CreatedByUserID);
+
+            return (ID != -1);
+        }
+
         public static clsApplications FindByApplicationID(int ApplicationID)
         {
             int ApplicationPersonID = -1, ApplicationTypeID = -1, CreatedByUserID = -1;
@@ -73,6 +82,24 @@ namespace DVLD_Buisness
                                         PaidFees, CreatedByUserID);
             else
                 return null;
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewApplication())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                default:
+                    return false;
+            }
         }
     }
 }
