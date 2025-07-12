@@ -2,6 +2,7 @@
 using DVLD_Shared;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,6 +123,11 @@ namespace DVLD_Buisness
         public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
         {
             return clsLocalDrivingLicenseApplicationsData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+        }
+
+        public static DataTable ListLocalDrivingLicenseApplications()
+        {
+            return clsLocalDrivingLicenseApplicationsData.ListLocalDrivingLicenseApplications();
         }
     }
 }

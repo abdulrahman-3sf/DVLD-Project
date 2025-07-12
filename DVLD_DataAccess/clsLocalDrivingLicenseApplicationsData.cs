@@ -181,36 +181,36 @@ namespace DVLD_DataAccess
             return (rowsAffected > 0);
         }
 
-        //public static DataTable ListLocalDrivingLicenseApplications()
-        //{
-        //    DataTable dt = new DataTable();
+        public static DataTable ListLocalDrivingLicenseApplications()
+        {
+            DataTable dt = new DataTable();
 
-        //    SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-        //    string query = "select * from LocalDrivingLicenseApplications_View";
+            string query = "select * from LocalDrivingLicenseApplications_View";
 
-        //    SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new SqlCommand(query, connection);
 
-        //    try
-        //    {
-        //        connection.Open();
-        //        SqlDataReader reader = command.ExecuteReader();
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
 
-        //        if (reader.HasRows)
-        //            dt.Load(reader);
+                if (reader.HasRows)
+                    dt.Load(reader);
 
-        //        reader.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
 
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
+            }
+            finally
+            {
+                connection.Close();
+            }
 
-        //    return dt;
-        //}
+            return dt;
+        }
     }
 }
