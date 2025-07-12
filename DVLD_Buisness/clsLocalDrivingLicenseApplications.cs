@@ -61,5 +61,23 @@ namespace DVLD_Buisness
             else
                 return null;
         }
+
+        public static clsApplications FindLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
+        {
+            int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
+
+            if (clsLocalDrivingLicenseApplicationsData.GetLocalDrivingLicenseApplicationInfoByApplicationID(
+                ref LocalDrivingLicenseApplicationID, ApplicationID, ref LicenseClassID))
+            {
+                clsApplications Application = clsApplications.FindByApplicationID(ApplicationID);
+
+                return new clsLocalDrivingLicenseApplications(LocalDrivingLicenseApplicationID, LicenseClassID, ApplicationID,
+                    Application.ApplicationPersonID, Application.ApplicationDate, Application.ApplicationTypeID,
+                    Application.ApplicationStatus, Application.LastStatusDate,
+                    Application.PaidFees, Application.CreatedByUserID);
+            }
+            else
+                return null;
+        }
     }
 }
