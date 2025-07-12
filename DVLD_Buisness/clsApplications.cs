@@ -111,5 +111,10 @@ namespace DVLD_Buisness
                     return false;
             }
         }
+
+        public static bool DeleteApplication(int ApplicationID)
+        {
+            return clsApplicationsData.DeleteApplication(ApplicationID);
+        }
     }
 }
