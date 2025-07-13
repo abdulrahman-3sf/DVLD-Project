@@ -46,19 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationTypes\frmManageApplicationTypes.cs">
+    <Compile Include="Applications\ApplicationTypes\frmManageApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationTypes\frmManageApplicationTypes.Designer.cs">
+    <Compile Include="Applications\ApplicationTypes\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationTypes\frmUpdateApplicationType.cs">
+    <Compile Include="Applications\ApplicationTypes\frmUpdateApplicationType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ApplicationTypes\frmUpdateApplicationType.Designer.cs">
+    <Compile Include="Applications\ApplicationTypes\frmUpdateApplicationType.Designer.cs">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="Global\clsGlobal.cs" />
+    <Compile Include="Applications\LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +157,14 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ApplicationTypes\frmManageApplicationTypes.resx">
+    <EmbeddedResource Include="Applications\ApplicationTypes\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ApplicationTypes\frmUpdateApplicationType.resx">
+    <EmbeddedResource Include="Applications\ApplicationTypes\frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.resx">
+      <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using DVLD.ApplicationTypes;
 using DVLD.Global;
+using DVLD.LocalDrivingLicenseApplications;
 using DVLD.LogIn;
 using DVLD.TestTypes;
 using DVLD.Users;
@@ -26,6 +27,7 @@ namespace DVLD
         private frmChangePassword userChangePassword;
         private frmManageApplicationTypes manageApplicationTypes;
         private frmManageTestTypes manageTestTypes;
+        private frmManageLocalDrivingLicenseApplications manageLocalDrivingLicenseApplications;
 
         public Main(frmLogin Login)
         {
@@ -104,6 +106,17 @@ namespace DVLD
                 manageTestTypes.MdiParent = this;
 
                 manageTestTypes.Show();
+            }
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageLocalDrivingLicenseApplications == null || manageLocalDrivingLicenseApplications.IsDisposed)
+            {
+                manageLocalDrivingLicenseApplications = new frmManageLocalDrivingLicenseApplications();
+                manageLocalDrivingLicenseApplications.MdiParent = this;
+
+                manageLocalDrivingLicenseApplications.Show();
             }
         }
     }

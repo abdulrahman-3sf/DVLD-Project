@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManageLocalDrivingLicenseApplications));
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,18 +40,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "All",
-            "Yes",
-            "No"});
-            this.comboBox2.Location = new System.Drawing.Point(261, 9);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(80, 21);
-            this.comboBox2.TabIndex = 25;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(261, 9);
@@ -60,6 +47,7 @@
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 24;
             this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label3
             // 
@@ -89,10 +77,10 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 44);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1150, 513);
+            this.dataGridView1.Size = new System.Drawing.Size(1067, 513);
             this.dataGridView1.TabIndex = 19;
             // 
             // comboBox1
@@ -100,15 +88,15 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "None",
-            "UserID",
-            "PersonID",
-            "UserName",
-            "FullName",
-            "IsActive"});
+            "L.D.L AppID",
+            "National No",
+            "Full Name",
+            "Status"});
             this.comboBox1.Location = new System.Drawing.Point(90, 9);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 21);
             this.comboBox1.TabIndex = 18;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // label1
             // 
@@ -125,27 +113,29 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1117, 2);
+            this.button2.Location = new System.Drawing.Point(1034, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(45, 36);
             this.button2.TabIndex = 23;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1066, 2);
+            this.button1.BackgroundImage = global::DVLD.Properties.Resources.New_Application_64;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(983, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 36);
             this.button1.TabIndex = 22;
+            this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // frmManageLocalDrivingLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 569);
-            this.Controls.Add(this.comboBox2);
+            this.ClientSize = new System.Drawing.Size(1088, 569);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -155,7 +145,9 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmManageLocalDrivingLicenseApplications";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManageLocalDrivingLicenseApplications";
+            this.Load += new System.EventHandler(this.frmManageLocalDrivingLicenseApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,8 +155,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
