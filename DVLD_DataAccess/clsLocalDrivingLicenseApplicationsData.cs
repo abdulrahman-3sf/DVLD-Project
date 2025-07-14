@@ -213,9 +213,9 @@ namespace DVLD_DataAccess
             return dt;
         }
 
-        public static byte GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        public static int GetPassedTestCount(int LocalDrivingLicenseApplicationID)
         {
-            byte PassedTest = 0;
+            int PassedTest = 0;
 
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
@@ -230,7 +230,7 @@ namespace DVLD_DataAccess
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
-                    PassedTest = (byte)reader["PassedTestCount"];
+                    PassedTest = (int)reader["PassedTestCount"];
 
                 reader.Close();
             }

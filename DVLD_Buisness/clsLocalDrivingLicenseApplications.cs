@@ -15,7 +15,7 @@ namespace DVLD_Buisness
 
         public int LocalDrivingLicenseApplicationID { get; set; }
         public int LicenseClassID { get; set; }
-        // clsLicenseClass LicenseClassInfo
+        public clsLicenseClass LicenseClassInfo;
 
         public enMode Mode = enMode.AddNew;
 
@@ -33,6 +33,7 @@ namespace DVLD_Buisness
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.LicenseClassID = LicenseClassID;
+            LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
             this.ApplicationID = ApplicationID;
             this.ApplicationPersonID = ApplicationPersonID;
             PersonInfo = clsPeople.Find(ApplicationPersonID);
@@ -142,7 +143,7 @@ namespace DVLD_Buisness
 
         public byte GetPassedTestCount()
         {
-            return clsLocalDrivingLicenseApplicationsData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
+            return (byte)clsLocalDrivingLicenseApplicationsData.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DVLD.Applications.LocalDrivingLicenseApplications
         {
             _LDLApplicationID = _LDLApplication.LocalDrivingLicenseApplicationID;
             lblLocalDrivingLicenseApplicationID.Text = _LDLApplicationID.ToString();
-            lblAppliedFor.Text = _LDLApplication.ApplicationTypeInfo.ApplicationTypeTitle;
+            lblAppliedFor.Text = _LDLApplication.LicenseClassInfo.ClassName;
             lblPassedTests.Text = _LDLApplication.GetPassedTestCount().ToString() + "/3";
 
             ctrlApplicationInfo1.LoadApplicationInfo(_LDLApplication.ApplicationID);
@@ -46,6 +46,11 @@ namespace DVLD.Applications.LocalDrivingLicenseApplications
             }
 
             _FillLDLApplicationInfo();
+        }
+
+        private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

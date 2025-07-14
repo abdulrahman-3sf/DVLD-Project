@@ -52,7 +52,7 @@ namespace DVLD.Applications.Controls
 
         private void llViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form form = new frmShowPersonInfo(_Application.ApplicationID);
+            Form form = new frmShowPersonInfo(_Application.ApplicationPersonID);
             form.ShowDialog();
 
             LoadApplicationInfo(_ApplicationID);

@@ -71,12 +71,14 @@
             // llShowLicenceInfo
             // 
             this.llShowLicenceInfo.AutoSize = true;
+            this.llShowLicenceInfo.Enabled = false;
             this.llShowLicenceInfo.Location = new System.Drawing.Point(149, 79);
             this.llShowLicenceInfo.Name = "llShowLicenceInfo";
             this.llShowLicenceInfo.Size = new System.Drawing.Size(94, 13);
             this.llShowLicenceInfo.TabIndex = 191;
             this.llShowLicenceInfo.TabStop = true;
             this.llShowLicenceInfo.Text = "Show License Info";
+            this.llShowLicenceInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenceInfo_LinkClicked);
             // 
             // pictureBox3
             // 

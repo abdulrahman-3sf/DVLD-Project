@@ -68,6 +68,7 @@ namespace DVLD_Buisness
             PersonInfo = clsPeople.Find(ApplicationPersonID);
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
+            ApplicationTypeInfo = clsApplicationTypes.Find(ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
