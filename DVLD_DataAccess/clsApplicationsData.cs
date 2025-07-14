@@ -12,7 +12,7 @@ namespace DVLD_DataAccess
     {
         public static bool GetApplicationInfoByID(int ApplicationID, ref int ApplicationPersonID, ref DateTime ApplicationDate,
             ref int ApplicationTypeID, ref byte ApplicationStatus, ref DateTime LastStatusDate,
-            ref float PaidFees, ref int CreatedByUserID)
+            ref decimal PaidFees, ref int CreatedByUserID)
         {
             bool isFound = false;
 
@@ -37,7 +37,7 @@ namespace DVLD_DataAccess
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationStatus = (byte)reader["ApplicationStatus"];
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = (float)reader["PaidFees"];
+                    PaidFees = (decimal)reader["PaidFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                 }
 
@@ -105,7 +105,7 @@ namespace DVLD_DataAccess
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"update Applications
-                     set ApplicantPersonID = @ApplicationPersonID,
+                     set ApplicantPersonID = @ApplicantPersonID,
                          ApplicationDate = @ApplicationDate,
                          ApplicationTypeID = @ApplicationTypeID,
                          ApplicationStatus = @ApplicationStatus,
@@ -120,7 +120,7 @@ namespace DVLD_DataAccess
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@PaidFees", (decimal)PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 

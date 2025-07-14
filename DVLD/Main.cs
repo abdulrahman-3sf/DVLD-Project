@@ -1,4 +1,5 @@
-﻿using DVLD.ApplicationTypes;
+﻿using DVLD.Applications.LocalDrivingLicenseApplications;
+using DVLD.ApplicationTypes;
 using DVLD.Global;
 using DVLD.LocalDrivingLicenseApplications;
 using DVLD.LogIn;
@@ -28,6 +29,7 @@ namespace DVLD
         private frmManageApplicationTypes manageApplicationTypes;
         private frmManageTestTypes manageTestTypes;
         private frmManageLocalDrivingLicenseApplications manageLocalDrivingLicenseApplications;
+        private frmAddEditNewLocalDrivingLicenseApplication addEditNewLocalDrivingLicenseApplication;
 
         public Main(frmLogin Login)
         {
@@ -117,6 +119,17 @@ namespace DVLD
                 manageLocalDrivingLicenseApplications.MdiParent = this;
 
                 manageLocalDrivingLicenseApplications.Show();
+            }
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addEditNewLocalDrivingLicenseApplication == null || addEditNewLocalDrivingLicenseApplication.IsDisposed)
+            {
+                addEditNewLocalDrivingLicenseApplication = new frmAddEditNewLocalDrivingLicenseApplication();
+                addEditNewLocalDrivingLicenseApplication.MdiParent = this;
+
+                addEditNewLocalDrivingLicenseApplication.Show();
             }
         }
     }

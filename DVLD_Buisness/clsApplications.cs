@@ -79,14 +79,14 @@ namespace DVLD_Buisness
             int ApplicationPersonID = -1, ApplicationTypeID = -1, CreatedByUserID = -1;
             DateTime ApplicationDate = DateTime.Now, LastStatusDate = DateTime.Now;
             byte ApplicationStatus = 1;
-            float PaidFees = 0;
+            decimal PaidFees = 0;
 
             if (clsApplicationsData.GetApplicationInfoByID(ApplicationID, ref ApplicationPersonID, ref ApplicationDate,
                                                         ref ApplicationTypeID, ref ApplicationStatus, ref LastStatusDate,
                                                         ref PaidFees, ref CreatedByUserID))
                 return new clsApplications(ApplicationID, ApplicationPersonID, ApplicationDate,
                                         ApplicationTypeID, (enApplicationStatus)ApplicationStatus, LastStatusDate,
-                                        PaidFees, CreatedByUserID);
+                                        (float)PaidFees, CreatedByUserID);
             else
                 return null;
         }

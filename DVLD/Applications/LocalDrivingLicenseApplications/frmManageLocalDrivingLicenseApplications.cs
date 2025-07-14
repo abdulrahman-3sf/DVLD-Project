@@ -122,5 +122,29 @@ namespace DVLD.LocalDrivingLicenseApplications
         {
             this.Close();
         }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmAddEditNewLocalDrivingLicenseApplication(LDLApplicationID);
+            form.ShowDialog();
+
+            _RefreashLocalDrivingLicenseApplications();
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

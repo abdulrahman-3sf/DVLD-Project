@@ -62,6 +62,7 @@ namespace DVLD.LogIn
             this.Hide();
             Form form = new Main(this);
             form.ShowDialog();
+            this.Show();
         }
     }
 }

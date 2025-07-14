@@ -80,6 +80,8 @@ namespace DVLD.Applications.LocalDrivingLicenseApplications
             label8.Text = clsApplicationTypes.Find(1).ApplicationTypeFees.ToString();
             label9.Text = _LDLApplicatoin.UserInfo.UserName;
 
+            _PersonID = _LDLApplicatoin.ApplicationPersonID;
+
             ctrlPersonCardWithFilter1.LoadPersonInfo(_PersonID);
             ctrlPersonCardWithFilter1.FilterEnable = false;
         }

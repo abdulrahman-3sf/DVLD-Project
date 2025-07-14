@@ -95,7 +95,7 @@ namespace DVLD.People.Controls
 
         public void LoadPersonInfo(int PersonID)
         {
-            comboBox1.SelectedIndex = 1;
+            comboBox1.SelectedIndex = 0;
             textBox1.Text = PersonID.ToString();
             FindNow();
         }
