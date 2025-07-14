@@ -139,7 +139,17 @@ namespace DVLD.LocalDrivingLicenseApplications
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
 
+            if (clsLocalDrivingLicenseApplications.DeleteLocalDrivingLicenseApplication(LDLApplicationID))
+            {
+                MessageBox.Show("Person Deleted Successfully.");
+                _RefreashLocalDrivingLicenseApplications();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
         }
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)

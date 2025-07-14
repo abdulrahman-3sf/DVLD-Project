@@ -122,7 +122,17 @@ namespace DVLD_Buisness
 
         public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
         {
-            return clsLocalDrivingLicenseApplicationsData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+            clsLocalDrivingLicenseApplications LDLApplicatoin = FindLocalDrivingLicenseApplicationByID(LocalDrivingLicenseApplicationID);
+
+            if (LDLApplicatoin != null)
+            {
+                clsLocalDrivingLicenseApplicationsData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+                clsApplications.DeleteApplication(LDLApplicatoin.ApplicationID);
+                
+                return true;
+            }
+
+            return false;
         }
 
         public static DataTable ListLocalDrivingLicenseApplications()
