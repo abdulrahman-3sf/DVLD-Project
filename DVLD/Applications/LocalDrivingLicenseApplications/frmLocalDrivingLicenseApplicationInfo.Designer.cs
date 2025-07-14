@@ -29,16 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocalDrivingLicenseApplicationInfo));
-            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD.Applications.LocalDrivingLicenseApplications.ctrlDrivingLicenseApplicationInfo();
             this.button1 = new System.Windows.Forms.Button();
+            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD.Applications.LocalDrivingLicenseApplications.ctrlDrivingLicenseApplicationInfo();
             this.SuspendLayout();
-            // 
-            // ctrlDrivingLicenseApplicationInfo1
-            // 
-            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
-            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(900, 362);
-            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 0;
             // 
             // button1
             // 
@@ -49,6 +42,13 @@
             this.button1.TabIndex = 121;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ctrlDrivingLicenseApplicationInfo1
+            // 
+            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
+            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(900, 362);
+            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 0;
             // 
             // frmLocalDrivingLicenseApplicationInfo
             // 
