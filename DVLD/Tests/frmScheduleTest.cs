@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Buisness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace DVLD.Tests
 {
     public partial class frmScheduleTest : Form
     {
-        public frmScheduleTest()
+        private int _LocalDrivingLicenseApplicationID = -1;
+        private int _AppointmentID = -1;
+        private clsTestTypes.enTestType _TestTypeID = clsTestTypes.enTestType.VisionTest;
+
+        public frmScheduleTest(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestType TestTypeID, int AppointmentID = -1)
         {
             InitializeComponent();
+
+            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _TestTypeID = TestTypeID;
+            _AppointmentID = AppointmentID;
+        }
+
+        private void frmScheduleTest_Load(object sender, EventArgs e)
+        {
+            ctrScheduleTest1.TestTypeID = _TestTypeID;
+            ctrScheduleTest1.LoadInfo(_LocalDrivingLicenseApplicationID, _AppointmentID);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
