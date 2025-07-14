@@ -21,7 +21,25 @@ namespace DVLD_Buisness
         public clsPeople PersonInfo;
         public DateTime ApplicationDate { get; set; }
         public int ApplicationTypeID { get; set; }
+        public clsApplicationTypes ApplicationTypeInfo;
         public enApplicationStatus ApplicationStatus { get; set; }
+        public string StatusText
+        {
+            get
+            {
+                switch (ApplicationStatus)
+                {
+                    case enApplicationStatus.New:
+                        return "New";
+                    case enApplicationStatus.Cancelled:
+                        return "Cancelled";
+                    case enApplicationStatus.Completed:
+                        return "Completed";
+                    default:
+                        return "Unknown";
+                }
+            }
+        }
         public DateTime LastStatusDate { get; set; }
         public float PaidFees { get; set; }
         public int CreatedByUserID { get; set; }

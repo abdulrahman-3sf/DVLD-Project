@@ -53,6 +53,9 @@
             this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleWritToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -168,7 +171,7 @@
             this.toolStripMenuItem6,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(247, 216);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(247, 238);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -219,6 +222,11 @@
             // 
             // sechduleTestToolStripMenuItem
             // 
+            this.sechduleTestToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.schduleVisionTestToolStripMenuItem,
+            this.schduleWritToolStripMenuItem,
+            this.schduleStreetTestToolStripMenuItem});
+            this.sechduleTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Schedule_Test_32;
             this.sechduleTestToolStripMenuItem.Name = "sechduleTestToolStripMenuItem";
             this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.sechduleTestToolStripMenuItem.Text = "Sechdule Test";
@@ -255,6 +263,28 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            // 
+            // schduleVisionTestToolStripMenuItem
+            // 
+            this.schduleVisionTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Vision_Test_32;
+            this.schduleVisionTestToolStripMenuItem.Name = "schduleVisionTestToolStripMenuItem";
+            this.schduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleVisionTestToolStripMenuItem.Text = "Schdule Vision Test";
+            this.schduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schduleVisionTestToolStripMenuItem_Click);
+            // 
+            // schduleWritToolStripMenuItem
+            // 
+            this.schduleWritToolStripMenuItem.Image = global::DVLD.Properties.Resources.Written_Test_32_Sechdule;
+            this.schduleWritToolStripMenuItem.Name = "schduleWritToolStripMenuItem";
+            this.schduleWritToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleWritToolStripMenuItem.Text = "Schdule Written Test";
+            // 
+            // schduleStreetTestToolStripMenuItem
+            // 
+            this.schduleStreetTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Street_Test_32;
+            this.schduleStreetTestToolStripMenuItem.Name = "schduleStreetTestToolStripMenuItem";
+            this.schduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleStreetTestToolStripMenuItem.Text = "Schdule Street Test";
             // 
             // frmManageLocalDrivingLicenseApplications
             // 
@@ -304,5 +334,8 @@
         private System.Windows.Forms.ToolStripMenuItem showLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schduleVisionTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schduleWritToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schduleStreetTestToolStripMenuItem;
     }
 }

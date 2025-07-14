@@ -125,7 +125,11 @@ namespace DVLD.LocalDrivingLicenseApplications
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmLocalDrivingLicenseApplicationInfo(LDLApplicationID);
+            form.ShowDialog();
 
+            _RefreashLocalDrivingLicenseApplications();
         }
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -166,6 +170,11 @@ namespace DVLD.LocalDrivingLicenseApplications
             {
                 MessageBox.Show("Error");
             }
+        }
+
+        private void schduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
