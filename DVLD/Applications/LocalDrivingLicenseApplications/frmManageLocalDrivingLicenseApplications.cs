@@ -154,7 +154,18 @@ namespace DVLD.LocalDrivingLicenseApplications
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplications LDLApplication = clsLocalDrivingLicenseApplications.FindLocalDrivingLicenseApplicationByID(LDLApplicationID);
 
+            if (LDLApplication.Cancel())
+            {
+                MessageBox.Show("Canceled Successfully.");
+                _RefreashLocalDrivingLicenseApplications();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
         }
     }
 }
