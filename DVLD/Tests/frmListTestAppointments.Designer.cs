@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListTestAppointments));
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD.Applications.LocalDrivingLicenseApplications.ctrlDrivingLicenseApplicationInfo();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.ctrlDrivingLicenseApplicationInfo1 = new DVLD.Applications.LocalDrivingLicenseApplications.ctrlDrivingLicenseApplicationInfo();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,18 +44,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(253, 24);
+            this.label1.Location = new System.Drawing.Point(265, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(390, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Vision Test Appointments";
-            // 
-            // ctrlDrivingLicenseApplicationInfo1
-            // 
-            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 87);
-            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
-            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(900, 362);
-            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 1;
             // 
             // label2
             // 
@@ -86,6 +79,7 @@
             this.button1.Size = new System.Drawing.Size(45, 36);
             this.button1.TabIndex = 122;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -117,6 +111,13 @@
             this.label4.TabIndex = 125;
             this.label4.Text = "??";
             // 
+            // ctrlDrivingLicenseApplicationInfo1
+            // 
+            this.ctrlDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(12, 87);
+            this.ctrlDrivingLicenseApplicationInfo1.Name = "ctrlDrivingLicenseApplicationInfo1";
+            this.ctrlDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(900, 362);
+            this.ctrlDrivingLicenseApplicationInfo1.TabIndex = 1;
+            // 
             // frmListTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +133,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmListTestAppointments";
             this.Text = "frmListTestAppointments";
+            this.Load += new System.EventHandler(this.frmListTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

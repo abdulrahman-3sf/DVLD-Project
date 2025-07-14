@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.LocalDrivingLicenseApplications;
+using DVLD.Tests;
 using DVLD_Buisness;
 using System;
 using System.Collections.Generic;
@@ -174,7 +175,11 @@ namespace DVLD.LocalDrivingLicenseApplications
 
         private void schduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmListTestAppointments(LDLApplicationID);
+            form.ShowDialog();
 
+            _RefreashLocalDrivingLicenseApplications();
         }
     }
 }
