@@ -32,7 +32,7 @@ namespace DVLD_DataAccess
                 {
                     isFound = true;
 
-                    ApplicationPersonID = (int)reader["ApplicationPersonID"];
+                    ApplicationPersonID = (int)reader["ApplicantPersonID"];
                     ApplicationDate = (DateTime)reader["ApplicationDate"];
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationStatus = (byte)reader["ApplicationStatus"];
@@ -63,12 +63,12 @@ namespace DVLD_DataAccess
 
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
-            string query = @"insert into Applications (ApplicationPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
-                             values (@ApplicationPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
+            string query = @"insert into Applications (ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+                             values (@ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
                              select SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@ApplicationPersonID", ApplicationPersonID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicationPersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
@@ -105,7 +105,7 @@ namespace DVLD_DataAccess
             SqlConnection connection = new SqlConnection(clsSettings.ConnectionString);
 
             string query = @"update Applications
-                     set ApplicationPersonID = @ApplicationPersonID,
+                     set ApplicantPersonID = @ApplicationPersonID,
                          ApplicationDate = @ApplicationDate,
                          ApplicationTypeID = @ApplicationTypeID,
                          ApplicationStatus = @ApplicationStatus,
@@ -115,7 +115,7 @@ namespace DVLD_DataAccess
                          where ApplicationID = @ApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@ApplicationPersonID", ApplicationPersonID);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicationPersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);

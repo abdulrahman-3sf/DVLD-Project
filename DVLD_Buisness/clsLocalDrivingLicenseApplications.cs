@@ -59,7 +59,7 @@ namespace DVLD_Buisness
             return clsLocalDrivingLicenseApplicationsData.UpdateLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID, ApplicationID, LicenseClassID);
         }
 
-        public static clsApplications FindLocalDrivingLicenseApplicationByID(int LocalDrivingLicenseApplicationID)
+        public static clsLocalDrivingLicenseApplications FindLocalDrivingLicenseApplicationByID(int LocalDrivingLicenseApplicationID)
         {
             int ApplicationID = -1, LicenseClassID = -1;
 
@@ -76,7 +76,7 @@ namespace DVLD_Buisness
                 return null;
         }
 
-        public static clsApplications FindLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
+        public static clsLocalDrivingLicenseApplications FindLocalDrivingLicenseApplicationByApplicationID(int ApplicationID)
         {
             int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
 

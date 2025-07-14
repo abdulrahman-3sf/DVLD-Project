@@ -1,4 +1,5 @@
-﻿using DVLD_Buisness;
+﻿using DVLD.Applications.LocalDrivingLicenseApplications;
+using DVLD_Buisness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -107,6 +108,14 @@ namespace DVLD.LocalDrivingLicenseApplications
 
             if (textBox1.Visible)
                 textBox1.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form = new frmAddEditNewLocalDrivingLicenseApplication();
+            form.ShowDialog();
+
+            _RefreashLocalDrivingLicenseApplications();
         }
 
         private void button2_Click(object sender, EventArgs e)
