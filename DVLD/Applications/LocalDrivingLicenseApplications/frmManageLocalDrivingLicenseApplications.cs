@@ -173,13 +173,28 @@ namespace DVLD.LocalDrivingLicenseApplications
             }
         }
 
-        private void schduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void _ScheduleTest(clsTestTypes.enTestType TestType)
         {
             int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            Form form = new frmListTestAppointments(LDLApplicationID);
+            Form form = new frmListTestAppointments(LDLApplicationID, TestType);
             form.ShowDialog();
 
             _RefreashLocalDrivingLicenseApplications();
+        }
+
+        private void schduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypes.enTestType.VisionTest);
+        }
+
+        private void schduleWritToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypes.enTestType.WrittenTest);
+        }
+
+        private void schduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ScheduleTest(clsTestTypes.enTestType.StreetTest);
         }
     }
 }

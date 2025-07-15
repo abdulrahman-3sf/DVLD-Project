@@ -34,10 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -47,15 +43,19 @@
             this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.sechduleTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleWritToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schduleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.issueDrivingLicenseFirstTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schduleWritToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schduleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -103,55 +103,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1067, 513);
             this.dataGridView1.TabIndex = 19;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "None",
-            "L.D.L AppID",
-            "National No",
-            "Full Name",
-            "Status"});
-            this.comboBox1.Location = new System.Drawing.Point(90, 9);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 18;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 19);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Filter By:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button2
-            // 
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1034, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 36);
-            this.button2.TabIndex = 23;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::DVLD.Properties.Resources.New_Application_64;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(983, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 36);
-            this.button1.TabIndex = 22;
-            this.button1.UseMnemonic = false;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -231,6 +182,30 @@
             this.sechduleTestToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.sechduleTestToolStripMenuItem.Text = "Sechdule Test";
             // 
+            // schduleVisionTestToolStripMenuItem
+            // 
+            this.schduleVisionTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Vision_Test_32;
+            this.schduleVisionTestToolStripMenuItem.Name = "schduleVisionTestToolStripMenuItem";
+            this.schduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleVisionTestToolStripMenuItem.Text = "Schdule Vision Test";
+            this.schduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schduleVisionTestToolStripMenuItem_Click);
+            // 
+            // schduleWritToolStripMenuItem
+            // 
+            this.schduleWritToolStripMenuItem.Image = global::DVLD.Properties.Resources.Written_Test_32_Sechdule;
+            this.schduleWritToolStripMenuItem.Name = "schduleWritToolStripMenuItem";
+            this.schduleWritToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleWritToolStripMenuItem.Text = "Schdule Written Test";
+            this.schduleWritToolStripMenuItem.Click += new System.EventHandler(this.schduleWritToolStripMenuItem_Click);
+            // 
+            // schduleStreetTestToolStripMenuItem
+            // 
+            this.schduleStreetTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Street_Test_32;
+            this.schduleStreetTestToolStripMenuItem.Name = "schduleStreetTestToolStripMenuItem";
+            this.schduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.schduleStreetTestToolStripMenuItem.Text = "Schdule Street Test";
+            this.schduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.schduleStreetTestToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
@@ -264,27 +239,54 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             // 
-            // schduleVisionTestToolStripMenuItem
+            // comboBox1
             // 
-            this.schduleVisionTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Vision_Test_32;
-            this.schduleVisionTestToolStripMenuItem.Name = "schduleVisionTestToolStripMenuItem";
-            this.schduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.schduleVisionTestToolStripMenuItem.Text = "Schdule Vision Test";
-            this.schduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schduleVisionTestToolStripMenuItem_Click);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "None",
+            "L.D.L AppID",
+            "National No",
+            "Full Name",
+            "Status"});
+            this.comboBox1.Location = new System.Drawing.Point(90, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(165, 21);
+            this.comboBox1.TabIndex = 18;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // schduleWritToolStripMenuItem
+            // label1
             // 
-            this.schduleWritToolStripMenuItem.Image = global::DVLD.Properties.Resources.Written_Test_32_Sechdule;
-            this.schduleWritToolStripMenuItem.Name = "schduleWritToolStripMenuItem";
-            this.schduleWritToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.schduleWritToolStripMenuItem.Text = "Schdule Written Test";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 19);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Filter By:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // schduleStreetTestToolStripMenuItem
+            // button2
             // 
-            this.schduleStreetTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Street_Test_32;
-            this.schduleStreetTestToolStripMenuItem.Name = "schduleStreetTestToolStripMenuItem";
-            this.schduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.schduleStreetTestToolStripMenuItem.Text = "Schdule Street Test";
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.Location = new System.Drawing.Point(1034, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 36);
+            this.button2.TabIndex = 23;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::DVLD.Properties.Resources.New_Application_64;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(983, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 36);
+            this.button1.TabIndex = 22;
+            this.button1.UseMnemonic = false;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmManageLocalDrivingLicenseApplications
             // 

@@ -20,11 +20,12 @@ namespace DVLD.Tests
 
         private DataTable _dtTestAppointments;
 
-        public frmListTestAppointments(int LDLApplicationID)
+        public frmListTestAppointments(int LDLApplicationID, clsTestTypes.enTestType TestType)
         {
             InitializeComponent();
 
             _LDLApplicationID = LDLApplicationID;
+            _TestTypeID = TestType;
         }
 
         private void _LoadTestTypeTitle()
@@ -109,6 +110,24 @@ namespace DVLD.Tests
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int TestAppointmentID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            Form form = new frmScheduleTest(_LDLApplicationID, _TestTypeID, TestAppointmentID);
+            form.ShowDialog();
+            frmListTestAppointments_Load(null, null);
+        }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int TestAppointmentID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            Form form = new frmTakeTest(TestAppointmentID, _TestTypeID);
+            form.ShowDialog();
+            frmListTestAppointments_Load(null, null);
         }
     }
 }
