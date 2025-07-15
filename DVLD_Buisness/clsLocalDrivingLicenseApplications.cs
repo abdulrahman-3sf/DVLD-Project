@@ -170,5 +170,10 @@ namespace DVLD_Buisness
         {
             return clsLocalDrivingLicenseApplicationsData.DoesPassTestType(LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
+        public clsTest GetLastTestPerTestType(clsTestTypes.enTestType TestTypeID)
+        {
+            return clsTest.FindLastTestPerPersonAndLicenseClass(ApplicationPersonID, LicenseClassID, TestTypeID);
+        }
     }
 }

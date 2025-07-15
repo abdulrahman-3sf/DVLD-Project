@@ -54,6 +54,7 @@
     <Compile Include="clsPeopleData.cs" />
     <Compile Include="clsSettings.cs" />
     <Compile Include="clsTestAppointmentsData.cs" />
+    <Compile Include="clsTestData.cs" />
     <Compile Include="clsTestTypesData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
