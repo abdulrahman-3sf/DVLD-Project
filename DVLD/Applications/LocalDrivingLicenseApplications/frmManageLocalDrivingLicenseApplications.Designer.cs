@@ -67,7 +67,7 @@
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 24;
             this.textBox1.Visible = false;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -130,7 +130,7 @@
             this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
             this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.showApplicationDetailsToolStripMenuItem.Text = "Show Application Details";
-            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
+            this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click_1);
             // 
             // toolStripMenuItem1
             // 
@@ -143,7 +143,7 @@
             this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
             this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.editApplicationToolStripMenuItem.Text = "Edit Application";
-            this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.editApplicationToolStripMenuItem_Click);
+            this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.editApplicationToolStripMenuItem_Click_1);
             // 
             // deleteApplicationToolStripMenuItem
             // 
@@ -151,7 +151,7 @@
             this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
             this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
-            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click);
+            this.deleteApplicationToolStripMenuItem.Click += new System.EventHandler(this.deleteApplicationToolStripMenuItem_Click_1);
             // 
             // toolStripMenuItem2
             // 
@@ -164,7 +164,7 @@
             this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
             this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
-            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
+            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click_1);
             // 
             // toolStripMenuItem3
             // 
@@ -188,7 +188,7 @@
             this.schduleVisionTestToolStripMenuItem.Name = "schduleVisionTestToolStripMenuItem";
             this.schduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.schduleVisionTestToolStripMenuItem.Text = "Schdule Vision Test";
-            this.schduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schduleVisionTestToolStripMenuItem_Click);
+            this.schduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schduleVisionTestToolStripMenuItem_Click_1);
             // 
             // schduleWritToolStripMenuItem
             // 
@@ -196,7 +196,7 @@
             this.schduleWritToolStripMenuItem.Name = "schduleWritToolStripMenuItem";
             this.schduleWritToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.schduleWritToolStripMenuItem.Text = "Schdule Written Test";
-            this.schduleWritToolStripMenuItem.Click += new System.EventHandler(this.schduleWritToolStripMenuItem_Click);
+            this.schduleWritToolStripMenuItem.Click += new System.EventHandler(this.schduleWritToolStripMenuItem_Click_1);
             // 
             // schduleStreetTestToolStripMenuItem
             // 
@@ -204,7 +204,7 @@
             this.schduleStreetTestToolStripMenuItem.Name = "schduleStreetTestToolStripMenuItem";
             this.schduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.schduleStreetTestToolStripMenuItem.Text = "Schdule Street Test";
-            this.schduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.schduleStreetTestToolStripMenuItem_Click);
+            this.schduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.schduleStreetTestToolStripMenuItem_Click_1);
             // 
             // toolStripMenuItem4
             // 
@@ -216,6 +216,7 @@
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Click += new System.EventHandler(this.issueDrivingLicenseFirstTimeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
@@ -227,6 +228,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.showLicenseToolStripMenuItem.Text = "Show License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -238,6 +240,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // comboBox1
             // 
@@ -252,7 +255,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 21);
             this.comboBox1.TabIndex = 18;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -286,7 +289,7 @@
             this.button1.TabIndex = 22;
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmManageLocalDrivingLicenseApplications
             // 
@@ -304,7 +307,7 @@
             this.Name = "frmManageLocalDrivingLicenseApplications";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmManageLocalDrivingLicenseApplications";
-            this.Load += new System.EventHandler(this.frmManageLocalDrivingLicenseApplications_Load);
+            this.Load += new System.EventHandler(this.frmManageLocalDrivingLicenseApplications_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

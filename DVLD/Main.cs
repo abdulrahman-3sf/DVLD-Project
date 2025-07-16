@@ -1,6 +1,12 @@
-﻿using DVLD.Applications.LocalDrivingLicenseApplications;
+﻿using DVLD.Applications.InternationalLicenses;
+using DVLD.Applications.LocalDrivingLicenseApplications;
+using DVLD.Applications.RenewLocalLicense;
+using DVLD.Applications.ReplaceLostOrDamagedLicense;
+using DVLD.Applications.RleaseDetanedLicense;
 using DVLD.ApplicationTypes;
+using DVLD.Drivers;
 using DVLD.Global;
+using DVLD.Licenses.Detain_License;
 using DVLD.LocalDrivingLicenseApplications;
 using DVLD.LogIn;
 using DVLD.TestTypes;
@@ -30,6 +36,14 @@ namespace DVLD
         private frmManageTestTypes manageTestTypes;
         private frmManageLocalDrivingLicenseApplications manageLocalDrivingLicenseApplications;
         private frmAddEditNewLocalDrivingLicenseApplication addEditNewLocalDrivingLicenseApplication;
+        private frmListDrivers manageDrivers;
+        private frmListInternationalLicenseApplications manageInternationalLicenses;
+        private frmNewInternationalLicenseApplication addNewInternationalLicenseApplication;
+        private frmRenwLocalDrivingLicenseApplicatoin renwLocalDrivingLicenseApplicatoin;
+        private frmReplaceLostOrDamagedLicense replaceLostOrDamagedLicense;
+        private frmReleaseDetainedLicenseApplication releaseDetainedLicenseApplication;
+        private frmListDetainedLicenses manageDetainedLicenses;
+        private frmDetainLicenseApplication detainLicenseApplication;
 
         public Main(frmLogin Login)
         {
@@ -130,6 +144,105 @@ namespace DVLD
                 addEditNewLocalDrivingLicenseApplication.MdiParent = this;
 
                 addEditNewLocalDrivingLicenseApplication.Show();
+            }
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageDrivers == null || manageDrivers.IsDisposed)
+            {
+                manageDrivers = new frmListDrivers();
+                manageDrivers.MdiParent = this;
+
+                manageDrivers.Show();
+            }
+        }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageInternationalLicenses == null || manageInternationalLicenses.IsDisposed)
+            {
+                manageInternationalLicenses = new frmListInternationalLicenseApplications();
+                manageInternationalLicenses.MdiParent = this;
+
+                manageInternationalLicenses.Show();
+            }
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addNewInternationalLicenseApplication == null || addNewInternationalLicenseApplication.IsDisposed)
+            {
+                addNewInternationalLicenseApplication = new frmNewInternationalLicenseApplication();
+                addNewInternationalLicenseApplication.MdiParent = this;
+
+                addNewInternationalLicenseApplication.Show();
+            }
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (renwLocalDrivingLicenseApplicatoin == null || renwLocalDrivingLicenseApplicatoin.IsDisposed)
+            {
+                renwLocalDrivingLicenseApplicatoin = new frmRenwLocalDrivingLicenseApplicatoin();
+                renwLocalDrivingLicenseApplicatoin.MdiParent = this;
+
+                renwLocalDrivingLicenseApplicatoin.Show();
+            }
+        }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (replaceLostOrDamagedLicense == null || replaceLostOrDamagedLicense.IsDisposed)
+            {
+                replaceLostOrDamagedLicense = new frmReplaceLostOrDamagedLicense();
+                replaceLostOrDamagedLicense.MdiParent = this;
+
+                replaceLostOrDamagedLicense.Show();
+            }
+        }
+
+        private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (releaseDetainedLicenseApplication == null || releaseDetainedLicenseApplication.IsDisposed)
+            {
+                releaseDetainedLicenseApplication = new frmReleaseDetainedLicenseApplication();
+                releaseDetainedLicenseApplication.MdiParent = this;
+
+                releaseDetainedLicenseApplication.Show();
+            }
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (manageDetainedLicenses == null || manageDetainedLicenses.IsDisposed)
+            {
+                manageDetainedLicenses = new frmListDetainedLicenses();
+                manageDetainedLicenses.MdiParent = this;
+
+                manageDetainedLicenses.Show();
+            }
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (detainLicenseApplication == null || detainLicenseApplication.IsDisposed)
+            {
+                detainLicenseApplication = new frmDetainLicenseApplication();
+                detainLicenseApplication.MdiParent = this;
+
+                detainLicenseApplication.Show();
+            }
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (releaseDetainedLicenseApplication == null || releaseDetainedLicenseApplication.IsDisposed)
+            {
+                releaseDetainedLicenseApplication = new frmReleaseDetainedLicenseApplication();
+                releaseDetainedLicenseApplication.MdiParent = this;
+
+                releaseDetainedLicenseApplication.Show();
             }
         }
     }

@@ -1,4 +1,6 @@
 ﻿using DVLD.Applications.LocalDrivingLicenseApplications;
+using DVLD.Licenses;
+using DVLD.Licenses.Local_Licenses;
 using DVLD.Tests;
 using DVLD_Buisness;
 using System;
@@ -31,7 +33,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             label3.Text = (dataGridView1.Rows.Count).ToString();
         }
 
-        private void frmManageLocalDrivingLicenseApplications_Load(object sender, EventArgs e)
+        private void frmManageLocalDrivingLicenseApplications_Load_1(object sender, EventArgs e)
         {
             _RefreashLocalDrivingLicenseApplications();
             comboBox1.SelectedIndex = 0;
@@ -61,7 +63,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             }
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
 
@@ -103,7 +105,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             label3.Text = (dataGridView1.Rows.Count).ToString();
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Visible = (comboBox1.SelectedIndex != 0);
 
@@ -111,7 +113,7 @@ namespace DVLD.LocalDrivingLicenseApplications
                 textBox1.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Form form = new frmAddEditNewLocalDrivingLicenseApplication();
             form.ShowDialog();
@@ -124,7 +126,16 @@ namespace DVLD.LocalDrivingLicenseApplications
             this.Close();
         }
 
-        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void _ScheduleTest(clsTestTypes.enTestType TestType)
+        {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Form form = new frmListTestAppointments(LDLApplicationID, TestType);
+            form.ShowDialog();
+
+            _RefreashLocalDrivingLicenseApplications();
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
             Form form = new frmLocalDrivingLicenseApplicationInfo(LDLApplicationID);
@@ -133,7 +144,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             _RefreashLocalDrivingLicenseApplications();
         }
 
-        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editApplicationToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
             Form form = new frmAddEditNewLocalDrivingLicenseApplication(LDLApplicationID);
@@ -142,7 +153,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             _RefreashLocalDrivingLicenseApplications();
         }
 
-        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteApplicationToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
 
@@ -157,7 +168,7 @@ namespace DVLD.LocalDrivingLicenseApplications
             }
         }
 
-        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cancelApplicationToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
             clsLocalDrivingLicenseApplications LDLApplication = clsLocalDrivingLicenseApplications.FindLocalDrivingLicenseApplicationByID(LDLApplicationID);
@@ -173,28 +184,57 @@ namespace DVLD.LocalDrivingLicenseApplications
             }
         }
 
-        private void _ScheduleTest(clsTestTypes.enTestType TestType)
-        {
-            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            Form form = new frmListTestAppointments(LDLApplicationID, TestType);
-            form.ShowDialog();
-
-            _RefreashLocalDrivingLicenseApplications();
-        }
-
-        private void schduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void schduleVisionTestToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestTypes.enTestType.VisionTest);
         }
 
-        private void schduleWritToolStripMenuItem_Click(object sender, EventArgs e)
+        private void schduleWritToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestTypes.enTestType.WrittenTest);
         }
 
-        private void schduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        private void schduleStreetTestToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             _ScheduleTest(clsTestTypes.enTestType.StreetTest);
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            frmIssueDrivingLicenseApplication frm = new frmIssueDrivingLicenseApplication(LDLApplicationID);
+            frm.ShowDialog();
+
+            _RefreashLocalDrivingLicenseApplications();
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            int LicenseID = clsLocalDrivingLicenseApplications.FindLocalDrivingLicenseApplicationByID(
+               LDLApplicationID).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LDLApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplications localDrivingLicenseApplication = clsLocalDrivingLicenseApplications.FindLocalDrivingLicenseApplicationByID(LDLApplicationID);
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicationPersonID);
+            frm.ShowDialog();
         }
     }
 }
